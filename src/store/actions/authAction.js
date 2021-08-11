@@ -7,13 +7,12 @@ export const signup = (userData, history) => {
   return async (dispatch) => {
 
     try {
-
         const formData = new FormData();
         for (const key in userData) formData.append(key, userData[key]);
-  
+  console.log(userData)
         const res = await instance.post(`/signup`, formData);
        history.push("/signIn");
-   console.log(userData)
+//   console.log(userData)
     } catch (error) {
       console.log(error);
     }
@@ -24,9 +23,10 @@ export const signin = (userData, history) => {
   return async (dispatch) => {
     try {
 
-      const res = await instance.post(`/signin`, userData);
+    //   const res = await instance.post(`/signin`, userData);
 
-      dispatch(setUser(res.data.token));
+    //   dispatch(setUser(res.data.token));
+    console.log(userData)
       history.push("/");
       
     } catch (error) {

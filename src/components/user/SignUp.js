@@ -9,7 +9,6 @@ import { signup } from "../../store/actions/authAction";
 // styles
 
 
-
 const Signup = () => {
   const [user, SetUser] = useState({
     email: "",
@@ -43,139 +42,44 @@ const Signup = () => {
   };
 
   return (
+<>
+<form onSubmit={handleSubmit} >
+  <div class="container">
+    <h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr></hr> 
+       <label for="email"><b>Email</b></label>
+    <input  type="text" placeholder="Enter Email" name="email" onChange={handleChange}  required/>
 
-    <>
-    <div class="container">
-      <div class="d-flex justify-content-center h-100">
-        <div class="card">
-          <div class="card-header">
-            <h3>Register</h3>
-          </div>
-          <div class="card-body">
-            <form onSubmit={handleSubmit}>
-              <div class="input-group form-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="fas fa-user"></i>
-                  </span>
-                </div>
-
-                <input
-                  type="email"
-                  class="form-control"
-                  name="email"
-                  onChange={handleChange}
-                  placeholder="enter your email"
-                  value={user.email}
-                />
-              </div>
-              <div class="input-group form-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="fas fa-user"></i>
-                  </span>
-                </div>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="firstName"
-                  onChange={handleChange}
-                  placeholder="enter your firstName"
-                  value={user.firstName}
-                />
-              </div>{" "}
-              <div>
-                
-                <input
-                  type="text"
-                  class="form-control"
-                  name="lastName"
-                  onChange={handleChange}
-                  placeholder="enter your lastName"
-                  value={user.lastName}
-                />{" "}
-              </div>
-<div>
-                
-                <input
-                  type="password"
-                  class="form-control"
-                  name="password"
-                  onChange={handleChange}
-                  placeholder="enter your password"
-                  value={user.password}
-                />{" "}
-              </div>
-
-
-              <div>
-                
-                <input
-                  type="password"
-                  class="form-control"
-                  name="confirmPassword"
-                  onChange={handleChange}
-                  placeholder="confirmPassword"
-                  value={user.confirmPassword}
-                />{" "}
-              </div>
-              {/* <select
-        onChange={handleChange}
-        class="aria-select"
-        multiple
-        aria-label="multiple select example"
-      >
-<option name="startup" value={user.type}>startup</option>
-<option name="invstor" value={user.type} >invstor</option>
-     </select> */}
-
-
-
-
-
-
-
-
-
-              <div class="input-group form-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="fas fa-user"></i>
-                  </span>
-                </div>
-                <input
-                  type="file"
-                  class="form-control"
-                  name="profilePicture"
-                  onChange={handleprofile}
-                  placeholder="profilePicture"
-                />
-              </div>
-
-
-              <div class="input-group form-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="fas fa-user"></i>
-                  </span>
-                </div>
-                <input
-                  type="file"
-                  class="form-control"
-                  name="idPicture"
-                  onChange={handleid}
-                  placeholder="idPicture"
-                />
-              </div>
-              <button type="submit">sign up </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </>
+    <label for="firstName"><b>firstName</b></label>
+    <input  type="text" placeholder="Enter firstName" name="firstName" onChange={handleChange}  required/>
    
-  );
+
+    <label for="lastName"><b>lastName</b></label>
+    <input  type="text" placeholder="Enter lastName" name="lastName" onChange={handleChange}  required/>
+
+
+    <label for="password"><b>password</b></label>
+    <input  type="password" placeholder="Enter password" name="password" onChange={handleChange}  required/>
+
+
+    <label for="confirmPassword"><b>confirmPassword</b></label>
+    <input  type="password" placeholder=" confirmPassword" name="confirmPassword" onChange={handleChange}  required/>
+
+    <label for="profilePicture"><b>profile picture</b></label>
+    <input  type="file" placeholder=" profilePicture" name="profilePicture" onChange={handleprofile}  />
+
+     <label for="idPicture"><b>ID Picture </b></label>
+    <input  type="file" placeholder=" idPicture" name="idPicture" onChange={handleid}  /> 
+
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+  </div>
+</form>
+
+</>  );
 };
 
 export default Signup;
