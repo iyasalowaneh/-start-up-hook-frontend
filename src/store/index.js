@@ -5,6 +5,8 @@ import thunk from "redux-thunk";
 
 // actions
 import { checkForToken } from "./actions/authAction";
+import { fetchIdeas } from "./actions/ideaAction";
+
 
 // reducers
 import rootReducer from "./reducers/index";
@@ -16,5 +18,7 @@ const store = createStore(
 );
 
 store.dispatch(checkForToken());
+store.dispatch(fetchIdeas());
+
 
 export default store;

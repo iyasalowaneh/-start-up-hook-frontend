@@ -6,11 +6,21 @@ import StartupProfile from "./user/StartupProfile"
 import SignIn  from "./user/SignIn"
 import SignUp  from "./user/SignUp"
 import Home from "./Home/Home";
+import CreateIdea from "./idea/CreateIdea";
+import IdeaList from "./idea/IdeaList";
 
 
 function Routes() {
   return (
     <Switch>
+        <Route path="/idealist">
+        <IdeaList />
+      </Route>
+       
+        <Route path="/createidea">
+        <CreateIdea />
+      </Route>
+
         <Route path="/startupProfile">
         <StartupProfile />
       </Route>
@@ -19,11 +29,11 @@ function Routes() {
         <SignIn />
       </Route>
 
-      <Route exact path="/">
+      <Route  path="/signUp">
         <SignUp />
       </Route>
 
-      <Route exact path="/home">
+      <Route exact path="/">
         <Home />
       </Route>
     </Switch>
