@@ -72,6 +72,13 @@ const Signup = () => {
      <label for="idPicture"><b>ID Picture </b></label>
     <input  type="file" placeholder=" idPicture" name="idPicture" onChange={handleid}  /> 
 
+
+    <label for="type">Choose a type:</label>
+  <select name="type" id="type" onChange={handleChange}>
+    <option value="startup">startup</option>
+    <option value="IDC">IDC</option>
+  </select>
+
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit" class="signupbtn">Sign Up</button>
