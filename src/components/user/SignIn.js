@@ -10,7 +10,7 @@ const Signin = () => {
 
   const [user, SetUser] = useState({
 
-        email: "",
+        username: "",
         password: "",
     }
   );
@@ -32,8 +32,8 @@ const Signin = () => {
     <h1>Sign Up</h1>
     <p>Please fill in this form to signIn.</p>
     <hr></hr> 
-       <label for="email"><b>Email</b></label>
-    <input  type="text" placeholder="Enter Email" name="email" onChange={handleChange}  required/>
+       <label for="username"><b>email</b></label>
+    <input  type="text" placeholder="Enter email" name="username" onChange={handleChange}  required/>
 
     <label for="firstName"><b>password</b></label>
     <input  type="password" placeholder="Enter password" name="password" onChange={handleChange}  required/>

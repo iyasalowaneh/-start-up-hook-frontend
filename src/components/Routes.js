@@ -2,12 +2,19 @@
 import { Route, Switch } from "react-router";
 
 // components
-import SignIn from "./user/SignIn";
-import SignUp from "./user/SignUp";
+import StartupProfile from "./user/StartupProfile"
+import SignIn  from "./user/SignIn"
+import SignUp  from "./user/SignUp"
 import Home from "./Home/Home";
+
+
 function Routes() {
   return (
     <Switch>
+        <Route path="/startupProfile">
+        <StartupProfile />
+      </Route>
+
       <Route path="/signIn">
         <SignIn />
       </Route>
