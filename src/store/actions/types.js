@@ -3,3 +3,8 @@
 export const SET_USER = "SET_USER";
 
 
+// idea 
+export const CREATE_IDEA="CREATE_IDEA";
+export const FETCH_IDEAS="FETCH_IDEAS";
+
+

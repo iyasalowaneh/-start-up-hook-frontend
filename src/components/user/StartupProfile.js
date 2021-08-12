@@ -45,8 +45,8 @@ const Profile = () => {
 <>
 <form onSubmit={handleSubmit} >
   <div class="container">
-    {/* <h1>hello {startupUser.firstName}</h1>
-    <img src={startupUser.profilePicture} alt="profilePicture" width="500" height="600"/> */}
+    <h1>hello {startupUser.firstName}</h1>
+    <img src={startupUser.profilePicture} alt="profilePicture" width="150" height="150"/>
 
     <p>Please fill these.</p>
     <hr></hr> 

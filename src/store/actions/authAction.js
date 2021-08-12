@@ -47,8 +47,7 @@ export const profile = (userData, history) => {
        //console.log(userData)
         const res = await instance.put(`/updateuser`, userData);
   
-        dispatch(setUser(res.data.token));
-        history.push("/signIn");
+        history.push("/");
       } catch (error) {
         console.log(error);
       }
