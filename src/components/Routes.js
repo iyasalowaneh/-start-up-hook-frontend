@@ -1,4 +1,3 @@
-
 // react
 import { Route, Switch } from "react-router";
 
@@ -6,11 +5,13 @@ import { Route, Switch } from "react-router";
 import StartupProfile from "./user/StartupProfile"
 import SignIn  from "./user/SignIn"
 import SignUp  from "./user/SignUp"
+import Home from "./Home/Home";
+
 
 function Routes() {
   return (
     <Switch>
-      <Route path="/startupProfile">
+        <Route path="/startupProfile">
         <StartupProfile />
       </Route>
 
@@ -19,9 +20,12 @@ function Routes() {
       </Route>
 
       <Route exact path="/">
-        <SignUp/>
+        <SignUp />
       </Route>
 
+      <Route exact path="/home">
+        <Home />
+      </Route>
     </Switch>
   );
 }
