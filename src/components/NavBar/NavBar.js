@@ -12,16 +12,16 @@ const NavBar = () => {
           <Link to="/" class="navbar-brand">
             Start-up Hook
           </Link>
-          <Link to="/" class="navbar-brand">
+          <Link to="/ideas" class="navbar-brand">
             Ideas
           </Link>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
             <form class="d-flex">
-              <L to="/">
+              <L to="/signin">
                 <Button type="button">SignIn</Button>
               </L>
-              <L to="/">
+              <L to="/signup">
                 <Button type="button">SignUp</Button>
               </L>
             </form>

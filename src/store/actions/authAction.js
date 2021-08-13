@@ -1,20 +1,18 @@
-import axios from "axios";
 import decode from "jwt-decode";
 import * as actionTypes from "./types";
 import instance from "./instance";
 
 export const signup = (userData, history) => {
   return async (dispatch) => {
-
     try {
-        const formData = new FormData();
-        for (const key in userData) formData.append(key, userData[key]);
-  console.log(userData)
-        const res = await instance.post(`/signup`, formData);
-        dispatch(setUser(res.data.token));
+      const formData = new FormData();
+      for (const key in userData) formData.append(key, userData[key]);
+      console.log(userData);
+      const res = await instance.post(`/signup`, formData);
+      dispatch(setUser(res.data.token));
 
-       history.push("/startupProfile");
-//   console.log(userData)
+      history.push("/startupProfile");
+      //   console.log(userData)
     } catch (error) {
       console.log(error);
     }
@@ -24,13 +22,11 @@ export const signup = (userData, history) => {
 export const signin = (userData, history) => {
   return async (dispatch) => {
     try {
-
       const res = await instance.post(`/signin`, userData);
 
       dispatch(setUser(res.data.token));
-    console.log(userData)
+      console.log(userData);
       history.push("/");
-      
     } catch (error) {
       console.log(error);
     }
@@ -42,19 +38,17 @@ export const signout = () => {
 };
 
 export const profile = (userData, history) => {
-    return async (dispatch) => {
-      try {
-       //console.log(userData)
-        const res = await instance.put(`/updateuser`, userData);
-  
-        history.push("/");
-      } catch (error) {
-        console.log(error);
-      }
-    };
-  };
-  
+  return async (dispatch) => {
+    try {
+      //console.log(userData)
+      const res = await instance.put(`/updateuser`, userData);
 
+      history.push("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 export const checkForToken = () => {
   const token = localStorage.getItem("myToken");

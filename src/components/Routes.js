@@ -2,34 +2,33 @@
 import { Route, Switch } from "react-router";
 
 // components
-import StartupProfile from "./user/StartupProfile"
-import SignIn  from "./user/SignIn"
-import SignUp  from "./user/SignUp"
+import StartupProfile from "./User/StartupProfile";
+import SignIn from "./User/SignIn";
+import SignUp from "./User/SignUp";
 import Home from "./Home/Home";
-import CreateIdea from "./idea/CreateIdea";
-import IdeaList from "./idea/IdeaList";
-
+import CreateIdea from "./Idea/CreateIdea";
+import IdeaList from "./Idea/IdeaList";
 
 function Routes() {
   return (
     <Switch>
-        <Route path="/idealist">
+      <Route path="/ideas">
         <IdeaList />
       </Route>
-       
-        <Route path="/createidea">
+
+      <Route path="/createidea">
         <CreateIdea />
       </Route>
 
-        <Route path="/startupProfile">
+      <Route path="/startupProfile">
         <StartupProfile />
       </Route>
 
-      <Route path="/signIn">
+      <Route path="/signin">
         <SignIn />
       </Route>
 
-      <Route  path="/signUp">
+      <Route path="/signup">
         <SignUp />
       </Route>
 
