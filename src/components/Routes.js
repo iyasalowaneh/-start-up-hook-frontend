@@ -2,6 +2,7 @@
 import { Route, Switch } from "react-router";
 
 // components
+import IdeaDetail from "./Idea/IdeaDetail";
 import StartupProfile from "./User/StartupProfile";
 import SignIn from "./User/SignIn";
 import SignUp from "./User/SignUp";
@@ -12,6 +13,9 @@ import IdeaList from "./Idea/IdeaList";
 function Routes() {
   return (
     <Switch>
+      <Route path="/ideas/:ideaSlug">
+        <IdeaDetail />
+      </Route>
       <Route path="/ideas">
         <IdeaList />
       </Route>

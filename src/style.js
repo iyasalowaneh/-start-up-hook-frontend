@@ -35,13 +35,18 @@ export const P = styled.p`
   color: #004e64;
 `;
 
-
 export const IdeaDiv = styled.div`
-border-style :solid;
-border-width:1px;
-border-color:gray;
-  margin-top:50px;
-  margin-left:25px;
-  margin-right:25px;
-  
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+  margin-top: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
+`;
+
+export const DetailDiv = styled.div`
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+  margin-left: 170px;
 `;
