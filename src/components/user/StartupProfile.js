@@ -16,10 +16,6 @@ const Profile = () => {
     const startupUser = useSelector((state) => state.users.user);
     console.log(startupUser)
     const [user, SetUser] = useState({
-    firstName: "",
-    lastName: "",
-    profilePicture:"",
-    type:"",
     education:"",
     experiance:"",
     country:"",
@@ -68,7 +64,7 @@ const Profile = () => {
 
 
     <label for="gender">Choose a gender:</label>
-  <select name="type" id="type" onChange={handleChange}>
+  <select name="gender" id="gender" onChange={handleChange}>
     <option value="male">male</option>
     <option value="female">female</option>
   </select>
