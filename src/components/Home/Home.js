@@ -1,3 +1,6 @@
+//compmnents
+import IdeaList from "../Idea/IdeaList";
+
 //styling
 import { Carousel } from "react-bootstrap";
 import { HomeDiv, Image, P, H2, FDiv } from "../../style";
@@ -46,6 +49,8 @@ const Home = () => {
         Hello Start-ups we are here to make your dream become true, we have
         helped hundreds of ideas{" "}
       </P>
+
+      <IdeaList/>
       <FDiv>
         <footer class=" text-white text-center text-lg-start">
           <div class="container p-4">

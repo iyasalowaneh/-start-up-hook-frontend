@@ -16,7 +16,7 @@ function Routes() {
         <IdeaList />
       </Route>
 
-      <Route path="/createidea">
+      <Route path="/createIdea">
         <CreateIdea />
       </Route>
 

@@ -34,3 +34,14 @@ export const P = styled.p`
   text-align: center;
   color: #004e64;
 `;
+
+
+export const IdeaDiv = styled.div`
+border-style :solid;
+border-width:1px;
+border-color:gray;
+  margin-top:50px;
+  margin-left:25px;
+  margin-right:25px;
+  
+`;
