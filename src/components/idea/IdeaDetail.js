@@ -1,18 +1,20 @@
 import { useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
 
+//components
+import InvestForm from "./InvestForm";
+
 //Styling
 import { DetailDiv, L, Button } from "../../style";
 const IdeaDetail = () => {
   const ideas = useSelector((state) => state.ideas.ideas);
   const users = useSelector((state) => state.users.users);
-  // console.log(users);
+
   const ideaSlug = useParams().ideaSlug;
   const idea = ideas.find((idea) => idea.slug === ideaSlug);
 
   const ideaOwner = users.find((user) => user.id === idea.ownerId);
 
-  console.log(ideaOwner);
   if (!idea) return <Redirect to="/" />;
 
   return (
@@ -76,7 +78,7 @@ const IdeaDetail = () => {
 
                     <L> Donate</L>
 
-                    <L> Invest</L>
+                    <L to={`/investment/${idea.slug}`}>Invest</L>
 
                     <p class="card-text">
                       <small class="text-muted">

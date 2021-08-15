@@ -9,13 +9,18 @@ import SignUp from "./User/SignUp";
 import Home from "./Home/Home";
 import CreateIdea from "./Idea/CreateIdea";
 import IdeaList from "./Idea/IdeaList";
+import InvestForm from "./Idea/InvestForm";
 
 function Routes() {
   return (
     <Switch>
+      <Route path="/investment/:ideaSlug">
+        <InvestForm />
+      </Route>
       <Route path="/ideas/:ideaSlug">
         <IdeaDetail />
       </Route>
+
       <Route path="/ideas">
         <IdeaList />
       </Route>
