@@ -1,9 +1,12 @@
 //styling
+import { useSelector } from "react-redux";
 import { IdeaDiv, Button, L } from "../../style";
-
 const IdeaItem = (props) => {
   const idea = props.idea;
-  const ideaProgress = (idea.recievedFund / idea.fundAmount) * 100;
+
+  const ideaProgress=(idea.recievedFund/idea.fundAmount)*100
+  const users = useSelector((state) => state.users.users);
+  let user =users.find((user)=> user.id === idea.ownerId )
   return (
     <>
       <div class="col-sm-3">
@@ -29,7 +32,8 @@ const IdeaItem = (props) => {
             </>
             <p class="card-text">{idea.ideaDescription}</p>
             <p class="card-text">
-              <small class="text-muted">{idea.createdAt.slice(0, 10)}</small>
+              <small class="text-muted">{idea.createdAt.slice(0, 10)} by {user?.firstName} {user?.lastName}
+</small>
             </p>
 
             <L to={`/ideas/${idea.slug}`}>
