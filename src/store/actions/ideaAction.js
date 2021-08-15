@@ -36,3 +36,21 @@ export const fetchIdeas = () => {
     }
   };
 };
+
+export const fundIdea = (updatedIdea) => {
+  return async (dispatch) => {
+    try {
+      const res = await instance.put(
+        `/ideas/${updatedIdea.ideaId}`,
+        updatedIdea
+      );
+      console.log(res.data);
+      dispatch({
+        type: actionTypes.UPDATE_IDEA,
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
