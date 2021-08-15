@@ -1,15 +1,18 @@
 import { useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 //Styling
-import { DetailDiv } from "../../style";
+import { DetailDiv, L, Button } from "../../style";
 const IdeaDetail = () => {
   const ideas = useSelector((state) => state.ideas.ideas);
-
+  const users = useSelector((state) => state.users.users);
+  // console.log(users);
   const ideaSlug = useParams().ideaSlug;
   const idea = ideas.find((idea) => idea.slug === ideaSlug);
 
+  const ideaOwner = users.find((user) => user.id === idea.ownerId);
+
+  console.log(ideaOwner);
   if (!idea) return <Redirect to="/" />;
 
   return (
@@ -20,19 +23,19 @@ const IdeaDetail = () => {
             <h1>
               <div class="card" style={{ width: "18rem" }}>
                 <img
-                  src="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
+                  src={ideaOwner.profilePicture}
                   class="card-img-top"
                   alt="..."
                 />
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">
-                    Go somewhere
-                  </a>
+                  <h5 class="card-title">
+                    {ideaOwner.firstName} {ideaOwner.lastName}
+                  </h5>
+                  <h6>Email :{ideaOwner.email}</h6>
+                  <h6>Age :{ideaOwner.age}</h6>
+                  <h6>Country :{ideaOwner.country}</h6>
+                  <h6>Education :{ideaOwner.education}</h6>
+                  <h6> About me :{ideaOwner.experiance}</h6>
                 </div>
               </div>
             </h1>
@@ -45,14 +48,16 @@ const IdeaDetail = () => {
                   <img
                     src={idea.ideaPicture}
                     class="img-fluid rounded-start"
-                    alt="..."
+                    alt={idea.ideaName}
                   />
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title">{idea.ideaName}</h5>
                     <h4>About the idea</h4>
-                    <p class="card-text">{idea.ideaDescription}</p>
+                    <p class="card-text">
+                      About the Idea :{idea.ideaDescription}
+                    </p>
                     <p class="card-text">Fund type: {idea.fundType}</p>
 
                     <div class="progress">
@@ -64,10 +69,14 @@ const IdeaDetail = () => {
                         aria-valuemin="0"
                         aria-valuemax="100"
                       >
-                        amount/{idea.fundAmount}$
+                        {idea.recievedFund}/{idea.fundAmount}$
                       </div>
                     </div>
-                    <Link to={`/${idea.ideaPdf}`}>Idea PDF</Link>
+                    <L to={`/${idea.ideaPdf}`}> Idea PDF</L>
+
+                    <L> Donate</L>
+
+                    <L> Invest</L>
 
                     <p class="card-text">
                       <small class="text-muted">

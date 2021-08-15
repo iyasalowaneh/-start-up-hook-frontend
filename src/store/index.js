@@ -1,4 +1,3 @@
-
 // redux
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
@@ -6,7 +5,7 @@ import thunk from "redux-thunk";
 // actions
 import { checkForToken } from "./actions/authAction";
 import { fetchIdeas } from "./actions/ideaAction";
-
+import { fetchUsers } from "./actions/usersListAction";
 
 // reducers
 import rootReducer from "./reducers/index";
@@ -19,6 +18,6 @@ const store = createStore(
 
 store.dispatch(checkForToken());
 store.dispatch(fetchIdeas());
-
+store.dispatch(fetchUsers());
 
 export default store;
