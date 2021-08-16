@@ -40,10 +40,12 @@ export const fetchIdeas = () => {
 export const fundIdea = (updatedIdea) => {
   return async (dispatch) => {
     try {
-      const res = await instance.put(
-        `/ideas/${updatedIdea.ideaId}`,
-        updatedIdea
-      );
+      const formData = new FormData();
+      for (const key in updatedIdea) {
+        formData.append(key, updatedIdea[key]);
+      }
+
+      const res = await instance.put(`/ideas/${updatedIdea.ideaId}`, formData);
       console.log(res.data);
       dispatch({
         type: actionTypes.UPDATE_IDEA,
