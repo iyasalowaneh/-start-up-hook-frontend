@@ -37,6 +37,21 @@ export const fetchIdeas = () => {
   };
 };
 
+
+export const fetchIdeaUser = () => {
+  return async (dispatch) => {
+    try {
+      const res = await instance.get(`/ideas/ideausers`);
+      dispatch({
+        type: actionTypes.FETCH_IDEA_USER,
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
 export const fundIdea = (updatedIdea) => {
   return async (dispatch) => {
     try {

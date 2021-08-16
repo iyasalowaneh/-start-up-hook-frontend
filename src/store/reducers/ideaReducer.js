@@ -3,6 +3,7 @@ import * as actionTypes from "../actions/types";
 
 const initialState = {
   ideas: [],
+  ideasUser:[]
 };
 
 const ideaReducer = (state = initialState, action) => {
@@ -17,6 +18,12 @@ const ideaReducer = (state = initialState, action) => {
       return {
         ...state,
         ideas: action.payload,
+      };
+
+      case actionTypes.FETCH_IDEA_USER:
+      return {
+        ...state,
+        ideasUser: action.payload,
       };
     case actionTypes.UPDATE_IDEA:
       const fundIdea = action.payload;

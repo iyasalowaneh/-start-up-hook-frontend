@@ -58,3 +58,8 @@ export const Form = styled.form`
   margin-top: 100px;
   margin-bottom: 300px;
 `;
+export const lisImage = styled.img`
+ height: 600px;
+  
+
+`
