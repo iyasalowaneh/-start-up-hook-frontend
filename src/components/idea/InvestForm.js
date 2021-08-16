@@ -8,7 +8,6 @@ const InvestForm = () => {
 
   const ideaSlug = useParams().ideaSlug;
   const _idea = ideas.find((idea) => idea.slug === ideaSlug);
-  console.log(_idea);
 
   const [idea, setIdea] = useState({
     amount: "",

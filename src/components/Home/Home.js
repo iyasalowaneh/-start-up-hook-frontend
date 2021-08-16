@@ -7,7 +7,6 @@ import { HomeDiv, Image, P, H2 } from "../../style";
 import { useSelector } from "react-redux";
 const Home = () => {
   const ideas = useSelector((state) => state.ideas.ideas);
-
   const fullIdea = ideas.filter(
     (idea) => idea.fundAmount === idea.recievedFund
   );
@@ -68,7 +67,6 @@ const Home = () => {
         true, we have helped hundreds of ideasHello Start-ups we are here to
         make your dream become true, we have helped hundreds of ideas
       </P>
-
       <H2>Success Story </H2>
       <P>Some of the fully funded ideas</P>
       <IdeaListHome ideas={fullIdea} />

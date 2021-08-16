@@ -9,5 +9,6 @@ const rootReducer = combineReducers({
   user: authReducer,
   ideas: ideaReducer,
   users: userListReducer,
+  ideasUser:ideaReducer
 });
 export default rootReducer;
