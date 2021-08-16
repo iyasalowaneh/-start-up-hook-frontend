@@ -1,7 +1,9 @@
-//styling
+//React
 import { useSelector } from "react-redux";
+
+//styling
 import { IdeaDiv, Button, L } from "../../style";
-const IdeaItem = (props) => {
+const IdeaItemHome = (props) => {
   const idea = props.idea;
 
   const ideaProgress = (idea.recievedFund / idea.fundAmount) * 100;
@@ -38,8 +40,8 @@ const IdeaItem = (props) => {
             <p class="card-text">{idea.ideaDescription}</p>
             <p class="card-text">
               <small class="text-muted">
-                Idea created at {idea.createdAt.slice(0, 10)} by{" "}
-                {user?.firstName} {user?.lastName}
+                {idea.createdAt.slice(0, 10)} by {user?.firstName}{" "}
+                {user?.lastName}
               </small>
             </p>
 
@@ -53,4 +55,4 @@ const IdeaItem = (props) => {
   );
 };
 
-export default IdeaItem;
+export default IdeaItemHome;
