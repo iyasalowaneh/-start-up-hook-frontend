@@ -1,6 +1,6 @@
 //React
 import { useSelector } from "react-redux";
-import { Redirect, useParams } from "react-router-dom";
+import { Link, Redirect, useParams } from "react-router-dom";
 
 //Styling
 import { DetailDiv, L } from "../../style";
@@ -93,8 +93,13 @@ const IdeaDetail = () => {
                       </small>
                     </p>
                   </div>
+
                 </div>
-              </div>
+              </div>   
+              <Link to={`/AgreementForm/${idea.slug}`}>   
+                <button  type="button" class="btn btn-outline-success">Agreement</button>
+                </Link>   
+
             </DetailDiv>
           </div>
         </div>
