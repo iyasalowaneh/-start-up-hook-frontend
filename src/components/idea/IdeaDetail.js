@@ -1,17 +1,16 @@
+//React
 import { useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
 
-//components
-import InvestForm from "./InvestForm";
-
 //Styling
-import { DetailDiv, L, Button } from "../../style";
+import { DetailDiv, L } from "../../style";
 const IdeaDetail = () => {
   const ideas = useSelector((state) => state.ideas.ideas);
   const users = useSelector((state) => state.users.users);
 
   const ideaSlug = useParams().ideaSlug;
   const idea = ideas.find((idea) => idea.slug === ideaSlug);
+  const ideaProgress = (idea.recievedFund / idea.fundAmount) * 100;
 
   const ideaOwner = users.find((user) => user.id === idea.ownerId);
 
@@ -61,17 +60,24 @@ const IdeaDetail = () => {
                       About the Idea :{idea.ideaDescription}
                     </p>
                     <p class="card-text">Fund type: {idea.fundType}</p>
+                    <img
+                      src="https://img.icons8.com/office/16/000000/money--v1.png"
+                      alt="money"
+                    />
 
+                    <address>
+                      {idea.recievedFund}$ of {idea.fundAmount}${" "}
+                    </address>
                     <div class="progress">
                       <div
                         class="progress-bar progress-bar-striped bg-success"
                         role="progressbar"
-                        style={{ width: "25%" }}
-                        aria-valuenow="25"
+                        style={{ width: `${ideaProgress}%` }}
+                        aria-valuenow={idea.recievedFund}
                         aria-valuemin="0"
-                        aria-valuemax="100"
+                        aria-valuemax={idea.fundAmount}
                       >
-                        {idea.recievedFund}/{idea.fundAmount}$
+                        {parseInt(ideaProgress)}%
                       </div>
                     </div>
                     <L to={`/${idea.ideaPdf}`}> Idea PDF</L>
@@ -82,7 +88,8 @@ const IdeaDetail = () => {
 
                     <p class="card-text">
                       <small class="text-muted">
-                        Idea created at {idea.createdAt.slice(0, 10)}
+                        Idea created at {idea.createdAt.slice(0, 10)} by{" "}
+                        {ideaOwner?.firstName} {ideaOwner?.lastName}
                       </small>
                     </p>
                   </div>

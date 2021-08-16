@@ -33,6 +33,8 @@ export const P = styled.p`
   font-family: cursive;
   text-align: center;
   color: #004e64;
+  margin-left: 150px;
+  margin-right: 150px;
 `;
 
 export const IdeaDiv = styled.div`
@@ -49,4 +51,10 @@ export const DetailDiv = styled.div`
   border-width: 1px;
   border-color: gray;
   margin-left: 170px;
+`;
+export const Form = styled.form`
+  margin-right: 400px;
+  margin-left: 400px;
+  margin-top: 100px;
+  margin-bottom: 300px;
 `;

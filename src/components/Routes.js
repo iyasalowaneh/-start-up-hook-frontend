@@ -10,6 +10,7 @@ import Home from "./Home/Home";
 import CreateIdea from "./Idea/CreateIdea";
 import IdeaList from "./Idea/IdeaList";
 import InvestForm from "./Idea/InvestForm";
+import Payment from "./Payment/Payment";
 
 function Routes() {
   return (
@@ -20,7 +21,9 @@ function Routes() {
       <Route path="/ideas/:ideaSlug">
         <IdeaDetail />
       </Route>
-
+      <Route path="/checkout">
+        <Payment />
+      </Route>
       <Route path="/ideas">
         <IdeaList />
       </Route>
