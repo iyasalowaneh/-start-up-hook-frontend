@@ -11,7 +11,8 @@ import CreateIdea from "./Idea/CreateIdea";
 import IdeaList from "./Idea/IdeaList";
 import InvestForm from "./Idea/InvestForm";
 import Payment from "./Payment/Payment";
-
+import AgreementForm from "./Idea/AgreemntForm";
+import ThankYouPage from "./Idea/ThankYouPage";
 function Routes() {
   return (
     <Switch>
@@ -21,9 +22,16 @@ function Routes() {
       <Route path="/ideas/:ideaSlug">
         <IdeaDetail />
       </Route>
+      <Route path="/ThankYouPage">
+        <ThankYouPage />
+      </Route>
       <Route path="/checkout">
         <Payment />
       </Route>
+      <Route path="/AgreementForm/:ideaSlug">
+        <AgreementForm />
+      </Route>
+      AgreementForm
       <Route path="/ideas">
         <IdeaList />
       </Route>
