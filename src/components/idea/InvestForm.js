@@ -12,12 +12,16 @@ const InvestForm = () => {
 
   const [idea, setIdea] = useState({
     amount: "",
+    agreement: "",
   });
 
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
     setIdea({ ...idea, [event.target.name]: event.target.value });
+  };
+  const handleAg = (event) => {
+    setIdea({ ...idea, agreement: event.target.files[0] });
   };
 
   const handleSubmit = (event) => {
@@ -33,6 +37,13 @@ const InvestForm = () => {
         placeholder="Enter your fund Amount"
         name="amount"
         onChange={handleChange}
+        required
+      />
+      <input
+        type="file"
+        placeholder="Enter your fund Amount"
+        name="agreement"
+        onChange={handleAg}
         required
       />
       <button type="submit">Submit</button>
