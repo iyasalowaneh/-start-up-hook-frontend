@@ -37,7 +37,6 @@ export const fetchIdeas = () => {
   };
 };
 
-
 export const fetchIdeaUser = () => {
   return async (dispatch) => {
     try {
@@ -65,6 +64,23 @@ export const fundIdea = (updatedIdea) => {
       dispatch({
         type: actionTypes.UPDATE_IDEA,
         payload: res.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const updateIdea = (updateIdea) => {
+  return async (dispatch) => {
+    try {
+      const res = await instance.put(
+        `/ideas/idea/${updateIdea.ideaId}`,
+        updateIdea
+      );
+      dispatch({
+        type: actionTypes.UPDATE_STATUS,
+        payload: { updateIdea: res.data },
       });
     } catch (error) {
       console.log(error);

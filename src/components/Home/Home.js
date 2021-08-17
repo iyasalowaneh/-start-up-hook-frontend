@@ -11,7 +11,7 @@ const Home = () => {
     (idea) => idea.fundAmount === idea.recievedFund
   );
 
-  console.log(fullIdea);
+  // console.log(fullIdea);
 
   return (
     <HomeDiv>

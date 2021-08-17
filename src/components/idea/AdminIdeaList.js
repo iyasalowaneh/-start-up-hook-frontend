@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 //components
-import IdeaItem from "./IdeaItem";
+import AdminIdeaItem from "./AdminIdeaItem";
 
-const IdeaList = () => {
+const AdminIdeaList = () => {
   const ideas = useSelector((state) => state.ideas.ideas);
   let ideaArray = ideas
-    .filter((_idea) => _idea.status === true)
-    .map((idea) => <IdeaItem idea={idea} key={idea?.id} />);
+    .filter((_idea) => _idea.status === false)
+    .map((idea) => <AdminIdeaItem idea={idea} key={idea?.id} />);
   return (
     <>
       <div>
@@ -16,4 +16,4 @@ const IdeaList = () => {
   );
 };
 
-export default IdeaList;
+export default AdminIdeaList;
