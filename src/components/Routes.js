@@ -13,15 +13,22 @@ import InvestForm from "./Idea/InvestForm";
 import Payment from "./Payment/Payment";
 import AgreementForm from "./Idea/AgreemntForm";
 import ThankYouPage from "./Idea/ThankYouPage";
+import MessageList from "./Chat/MessageList";
+import AdminIdeaList from "./Idea/AdminIdeaList";
+import AdminIdeaDetail from "./Idea/AdminIdeaDetail";
 function Routes() {
   return (
     <Switch>
+      <Route path="/chat/:ideaOwnerSlug">
+        <MessageList />
+      </Route>
       <Route path="/investment/:ideaSlug">
         <InvestForm />
       </Route>
       <Route path="/ideas/:ideaSlug">
         <IdeaDetail />
       </Route>
+
       <Route path="/ThankYouPage">
         <ThankYouPage />
       </Route>
@@ -31,7 +38,13 @@ function Routes() {
       <Route path="/AgreementForm/:ideaSlug">
         <AgreementForm />
       </Route>
-      AgreementForm
+
+      <Route path="/adminlist/:ideaSlug">
+        <AdminIdeaDetail />
+      </Route>
+      <Route path="/adminlist">
+        <AdminIdeaList />
+      </Route>
       <Route path="/ideas">
         <IdeaList />
       </Route>

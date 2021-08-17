@@ -3,7 +3,7 @@ import * as actionTypes from "../actions/types";
 
 const initialState = {
   ideas: [],
-  ideasUser:[]
+  ideasUser: [],
 };
 
 const ideaReducer = (state = initialState, action) => {
@@ -20,7 +20,7 @@ const ideaReducer = (state = initialState, action) => {
         ideas: action.payload,
       };
 
-      case actionTypes.FETCH_IDEA_USER:
+    case actionTypes.FETCH_IDEA_USER:
       return {
         ...state,
         ideasUser: action.payload,
@@ -34,7 +34,15 @@ const ideaReducer = (state = initialState, action) => {
           idea.id === fundIdea.id ? fundIdea : idea
         ),
       };
+    case actionTypes.UPDATE_STATUS:
+      const { updateIdea } = action.payload;
 
+      return {
+        ...state,
+        ideas: state.ideas.map((idea) =>
+          idea.id === updateIdea.id ? updateIdea : idea
+        ),
+      };
     default:
       return state;
   }

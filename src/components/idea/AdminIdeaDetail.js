@@ -1,10 +1,11 @@
 //React
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect, useParams } from "react-router-dom";
-
+//actions
+import { updateIdea } from "../../store/actions/ideaAction";
 //Styling
-import { DetailDiv, L } from "../../style";
-const IdeaDetail = () => {
+import { DetailDiv, L, Button } from "../../style";
+const AdminIdeaDetail = () => {
   const ideas = useSelector((state) => state.ideas.ideas);
   const users = useSelector((state) => state.users.users);
 
@@ -12,6 +13,12 @@ const IdeaDetail = () => {
   const idea = ideas.find((idea) => idea.slug === ideaSlug);
   const ideaProgress = (idea.recievedFund / idea.fundAmount) * 100;
   const ideaOwner = users.find((user) => user.id === idea.ownerId);
+
+  const dispatch = useDispatch();
+
+  const Approve = () => {
+    dispatch(updateIdea({ ...updateIdea, status: true, ideaId: idea.id }));
+  };
 
   if (!idea) return <Redirect to="/" />;
 
@@ -84,9 +91,8 @@ const IdeaDetail = () => {
                     </div>
                     <L to={`/${idea.ideaPdf}`}> Idea PDF</L>
 
-                    <L> Donate</L>
-
-                    <L to={`/investment/${idea.slug}`}>Invest</L>
+                    <Button onClick={() => Approve()}>Approve</Button>
+                    <Button>Reject</Button>
 
                     <p class="card-text">
                       <small class="text-muted">
@@ -97,11 +103,6 @@ const IdeaDetail = () => {
                   </div>
                 </div>
               </div>
-              <Link to={`/AgreementForm/${idea.slug}`}>
-                <button type="button" class="btn btn-outline-success">
-                  Agreement
-                </button>
-              </Link>
             </DetailDiv>
           </div>
         </div>
@@ -109,4 +110,4 @@ const IdeaDetail = () => {
     </>
   );
 };
-export default IdeaDetail;
+export default AdminIdeaDetail;

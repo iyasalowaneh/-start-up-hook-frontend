@@ -59,7 +59,29 @@ export const Form = styled.form`
   margin-bottom: 300px;
 `;
 export const lisImage = styled.img`
- height: 600px;
-  
-
-`
+  height: 600px;
+`;
+export const TextArea = styled.textarea`
+  margin-left: 600px;
+  width: 300px;
+`;
+export const SendButton = styled.button`
+  width: 200px;
+  margin-left: 650px;
+  margin-top: 0;
+`;
+export const ChatImage = styled.img`
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+`;
+export const ChatImageR = styled.img`
+  float: right;
+  max-width: 60px;
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 0;
+  border-radius: 50%;
+`;
