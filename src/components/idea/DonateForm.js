@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { fundIdea } from "../../store/actions/ideaAction";
+import { donationIdea } from "../../store/actions/ideaAction";
 
 const DonateForm = () => {
   const ideas = useSelector((state) => state.ideas.ideas);
@@ -19,11 +19,10 @@ const DonateForm = () => {
     setIdea({ ...idea, [event.target.name]: event.target.value });
   };
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const newIdea = { ...idea, ideaId: _idea.id };
-    dispatch(fundIdea(newIdea));
+    dispatch(donationIdea(newIdea));
   };
 
   return (

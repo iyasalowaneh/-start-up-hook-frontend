@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { fundIdea } from "../../store/actions/ideaAction";
 
 const InvestForm = () => {
@@ -45,7 +46,9 @@ const InvestForm = () => {
         onChange={handleAg}
         required
       />
-      <button type="submit">Submit</button>
+      <Link to="/checkout">
+        <button type="submit">Submit</button>
+      </Link>
     </form>
   );
 };

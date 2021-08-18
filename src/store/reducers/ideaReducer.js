@@ -34,6 +34,15 @@ const ideaReducer = (state = initialState, action) => {
           idea.id === fundIdea.id ? fundIdea : idea
         ),
       };
+    case actionTypes.DONAT_IDEA:
+      const donationIdea = action.payload;
+
+      return {
+        ...state,
+        ideas: state.ideas.map((idea) =>
+          idea.id === donationIdea.id ? donationIdea : idea
+        ),
+      };
     case actionTypes.UPDATE_STATUS:
       const { updateIdea } = action.payload;
 

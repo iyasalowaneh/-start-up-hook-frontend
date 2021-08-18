@@ -70,7 +70,23 @@ export const fundIdea = (updatedIdea) => {
     }
   };
 };
-
+export const donationIdea = (updatedIdea) => {
+  return async (dispatch) => {
+    try {
+      const res = await instance.put(
+        `/ideas/donation/${updatedIdea.ideaId}`,
+        updatedIdea
+      );
+      console.log(res.data);
+      dispatch({
+        type: actionTypes.DONAT_IDEA,
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 export const updateIdea = (updateIdea) => {
   return async (dispatch) => {
     try {
