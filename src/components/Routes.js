@@ -16,6 +16,9 @@ import ThankYouPage from "./Idea/ThankYouPage";
 import MessageList from "./Chat/MessageList";
 import AdminIdeaList from "./Idea/AdminIdeaList";
 import AdminIdeaDetail from "./Idea/AdminIdeaDetail";
+import InvestorList from "./User/InvestorList";
+import DonatForm from "./Idea/DonateForm";
+
 function Routes() {
   return (
     <Switch>
@@ -25,8 +28,17 @@ function Routes() {
       <Route path="/investment/:ideaSlug">
         <InvestForm />
       </Route>
+
+      <Route path="/donation/:ideaSlug">
+        <DonatForm />
+      </Route>
       <Route path="/ideas/:ideaSlug">
         <IdeaDetail />
+      </Route>
+
+
+      <Route path="/chatLits/:ideaSlug">
+        <InvestorList />
       </Route>
 
       <Route path="/ThankYouPage">
