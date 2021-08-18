@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { fundIdea } from "../../store/actions/ideaAction";
+import { fundIdea, updateIdea } from "../../store/actions/ideaAction";
 import InvItem from "./InvItem";
 const AgreementForm = () => {
   const dispatch = useDispatch();
@@ -14,6 +14,11 @@ const AgreementForm = () => {
   const IdeaWithInv = ideaUsers
     .filter((ideauser) => ideauser.ideaId === _idea.id)
     .map((idea) => <InvItem idea={idea} key={idea.investorId} />);
+
+  const approve = () => {
+    dispatch(updateIdea({ ...updateIdea, status: false, ideaId: _idea.id }));
+  };
+
   return (
     <>
       {IdeaWithInv}
@@ -24,8 +29,14 @@ const AgreementForm = () => {
       >
         Decline
       </button>
-      <Link to="/ThankYouPage">
-        <button type="submit" class="signupbtn">
+      <Link to="/withdraw">
+        <button
+          onClick={() => {
+            approve();
+          }}
+          type="submit"
+          class="signupbtn"
+        >
           Accept
         </button>
       </Link>

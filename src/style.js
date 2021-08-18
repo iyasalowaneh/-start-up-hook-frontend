@@ -85,3 +85,9 @@ export const ChatImageR = styled.img`
   margin-right: 0;
   border-radius: 50%;
 `;
+
+export const Embed = styled.embed`
+  width: 700px;
+  height: 900px;
+  margin-left: 300px;
+`;

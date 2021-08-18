@@ -18,6 +18,7 @@ import AdminIdeaList from "./Idea/AdminIdeaList";
 import AdminIdeaDetail from "./Idea/AdminIdeaDetail";
 import InvestorList from "./User/InvestorList";
 import DonatForm from "./Idea/DonateForm";
+import WithdrawForm from "./Idea/WithdrawForm";
 
 function Routes() {
   return (
@@ -36,7 +37,6 @@ function Routes() {
         <IdeaDetail />
       </Route>
 
-
       <Route path="/chatLits/:ideaSlug">
         <InvestorList />
       </Route>
@@ -47,8 +47,11 @@ function Routes() {
       <Route path="/checkout">
         <Payment />
       </Route>
-      <Route path="/AgreementForm/:ideaSlug">
+      <Route path="/agreementform/:ideaSlug">
         <AgreementForm />
+      </Route>
+      <Route path="/withdraw">
+        <WithdrawForm />
       </Route>
 
       <Route path="/adminlist/:ideaSlug">
