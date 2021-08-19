@@ -2,9 +2,12 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Button = styled.button`
-	background-color: #7ae582;
-	margin-left: 4px;
-	color: #004e64;
+  background-color: #7ae582;
+  margin-left: 4px;
+
+  color: #004e64;
+  margin-top: 5px;
+
 `;
 export const L = styled(Link)`
 	margin-left: 4px;
@@ -47,6 +50,7 @@ export const IdeaDiv = styled.div`
 `;
 
 export const DetailDiv = styled.div`
+
 	border-style: solid;
 	border-width: 1px;
 	border-color: gray;
@@ -136,4 +140,66 @@ export const FooterL = styled(Link)`
 	margin-left: 4px;
 	text-decoration: unset;
 	color: black;
+`;
+
+export const ButtonC = styled.button`
+  background-color: greenyellow;
+  margin-left: 4px;
+
+  color: #004e64;
+  width: 114px;
+  margin-top: 5px;
+`;
+
+export const ButtonI = styled.button`
+  background-color: #00f5d4;
+  margin-left: 4px;
+
+  color: #004e64;
+  width: 114px;
+  margin-top: 5px;
+`;
+
+export const ButtonD = styled.button`
+  background-color: #0aff99;
+  margin-left: 4px;
+
+  color: #004e64;
+  width: 114px;
+  margin-top: 5px;
+`;
+export const ButtonP = styled.button`
+  background-color: #ade8f4;
+  color: #004e64;
+  width: 114px;
+  margin-top: 5px;
+`;
+export const P1 = styled.p`
+  font-size: medium;
+  font-weight: normal;
+`;
+export const L2 = styled(Link)`
+  text-decoration: unset;
+  font-size: large;
+  font-weight: normal;
+  margin-left: 110px;
+`;
+export const H4 = styled.h4`
+  margin-top: 40px;
+`;
+export const H5 = styled.h5`
+  margin-top: 17px;
+  color: white;
+`;
+export const ButtonDiv = styled.div`
+  margin-top: 10px;
+`;
+export const Input = styled.input`
+  margin-left: 15px;
+`;
+export const ButtonS = styled.button`
+  background-color: unset;
+  color: #004e64;
+  width: 114px;
+  margin-top: 5px;
 `;

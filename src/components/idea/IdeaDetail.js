@@ -3,10 +3,22 @@ import { useSelector } from "react-redux";
 import { Link, Redirect, useParams } from "react-router-dom";
 
 //Styling
-import { DetailDiv, L } from "../../style";
+import {
+  DetailDiv,
+  L,
+  L2,
+  P1,
+  H4,
+  ButtonC,
+  ButtonI,
+  ButtonD,
+  ButtonP,
+  ButtonDiv,
+} from "../../style";
+import { BsFillChatDotsFill } from "react-icons/bs";
+
 const IdeaDetail = () => {
   const ideas = useSelector((state) => state.ideas.ideas);
-  const user = useSelector((state) => state.user.user);
   const users = useSelector((state) => state.users.users);
 
   const ideaSlug = useParams().ideaSlug;
@@ -32,14 +44,15 @@ const IdeaDetail = () => {
                   <h5 class="card-title">
                     {ideaOwner.firstName} {ideaOwner.lastName}
                   </h5>
-                  <h6>Email :{ideaOwner.email}</h6>
-                  <h6>Age :{ideaOwner.age}</h6>
-                  <h6>Country :{ideaOwner.country}</h6>
-                  <h6>Education :{ideaOwner.education}</h6>
-                  <h6> About me :{ideaOwner.experiance}</h6>
-                  {/* <L to={`/chatLits/${idea.slug}`}>chat with ideaOnwe </L> */}
+                  <P1>Email : {ideaOwner.email}</P1>
+                  <P1>Age : {ideaOwner.age}</P1>
+                  <P1>Country : {ideaOwner.country}</P1>
+                  <P1>Education : {ideaOwner.education}</P1>
+                  <P1> About me :{ideaOwner.experiance}</P1>
 
-                  <L to={`/chatLits/${idea.slug}`}>chat with investors </L>
+                  <L2 to={`/chatLits/${idea.slug}`}>
+                    <BsFillChatDotsFill />
+                  </L2>
                 </div>
               </div>
             </h1>
@@ -48,28 +61,26 @@ const IdeaDetail = () => {
           <div class="col-9">
             <DetailDiv class="card mb-3" style={{ maxwidth: "540px" }}>
               <div class="row g-0">
-                <div class="col-md-4">
+                <div class="col-md-12">
                   <img
                     src={idea.ideaPicture}
                     class="img-fluid rounded-start"
                     alt={idea.ideaName}
                   />
                 </div>
-                <div class="col-md-8">
+
+                <div class="col-md-10">
                   <div class="card-body">
                     <h5 class="card-title">{idea.ideaName}</h5>
-                    <h4>About the idea</h4>
-                    <p class="card-text">
-                      About the Idea :{idea.ideaDescription}
-                    </p>
                     <p class="card-text">Fund type: {idea.fundType}</p>
+
                     <img
                       src="https://img.icons8.com/office/16/000000/money--v1.png"
                       alt="money"
                     />
 
                     <address>
-                      {idea?.recievedFund}$ of {idea.fundAmount}${" "}
+                      {idea?.recievedFund}$ of {idea.fundAmount}$
                     </address>
                     <div class="progress">
                       <div
@@ -83,16 +94,54 @@ const IdeaDetail = () => {
                         {parseInt(ideaProgress)}%
                       </div>
                     </div>
-                    <L to={`/${idea.ideaPdf}`}> Idea PDF</L>
+                    <ButtonDiv>
+                      {idea.fundType === "donat" && (
+                        <L to={`/donation/${idea.slug}`}>
+                          <ButtonD> Donate </ButtonD>
+                        </L>
+                      )}
+                      {idea.fundType === "invest" && (
+                        <L to={`/investment/${idea.slug}`}>
+                          <ButtonI> Invest </ButtonI>
+                        </L>
+                      )}
+                      {idea.fundType === "consult" && (
+                        <L to={`/chatLits/${idea.slug}`}>
+                          <ButtonC class="btn btn-success">
+                            Consultation{" "}
+                          </ButtonC>
+                        </L>
+                      )}
+                      {idea.fundType === "all" && (
+                        <L to={`/donation/${idea.slug}`}>
+                          <ButtonD> Donate </ButtonD>
+                        </L>
+                      )}
+                      {idea.fundType === "all" && (
+                        <L to={`/investment/${idea.slug}`}>
+                          <ButtonI> Invest </ButtonI>
+                        </L>
+                      )}
+                      {idea.fundType === "all" && (
+                        <L to={`/chatLits/${idea.slug}`}>
+                          <ButtonC class="btn btn-success">
+                            Consultation{" "}
+                          </ButtonC>
+                        </L>
+                      )}
+                    </ButtonDiv>
+                    <H4>About the idea</H4>
+                    <p class="card-text">
+                      About the Idea :{idea.ideaDescription}
+                    </p>
 
-                    <L to={`/donation/${idea.slug}`}> Donate</L>
-
-                    <L to={`/investment/${idea.slug}`}>Invest</L>
-                    <L to={`/chatLits/${idea.slug}`}>Consultation </L>
+                    <L to={`/${idea.ideaPdf}`}>
+                      <ButtonP>Idea PDF</ButtonP>
+                    </L>
 
                     <p class="card-text">
                       <small class="text-muted">
-                        Idea created at {idea.createdAt.slice(0, 10)} by
+                        Idea created at {idea.createdAt.slice(0, 10)} by{" "}
                         {ideaOwner?.firstName} {ideaOwner?.lastName}
                       </small>
                     </p>

@@ -1,15 +1,18 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+//components
+import Signin from "../User/SignIn";
 
 //actions
 import { signout } from "../../store/actions/authAction";
 
 //styling
-import { Button, FDiv, L } from "../../style";
+import { ButtonS, FDiv, L, H5 } from "../../style";
 
 const NavBar = () => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
 
   return (
     <FDiv>
@@ -21,18 +24,26 @@ const NavBar = () => {
           <Link to="/ideas" class="navbar-brand">
             Ideas
           </Link>
+
+          {!user ||
+            (user.type === "startup" && (
+              <Link to="/createIdea" class="navbar-brand">
+                Create your idea
+              </Link>
+            ))}
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            {!user && <Signin />}
+
             <form class="d-flex">
-              <L to="/signin">
-                <Button type="button">SignIn</Button>
-              </L>
-              <L to="/signup">
-                <Button type="button">SignUp</Button>
-              </L>
-              <L>
-                <Button onClick={() => dispatch(signout())}>Sign out</Button>
-              </L>
+              {user && <H5>Hello, {user.firstName}</H5>}
+              {user && (
+                <L>
+                  <ButtonS onClick={() => dispatch(signout())}>
+                    Sign out
+                  </ButtonS>
+                </L>
+              )}
             </form>
           </div>
         </div>
