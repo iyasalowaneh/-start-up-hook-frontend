@@ -19,7 +19,7 @@ import AdminIdeaDetail from "./Idea/AdminIdeaDetail";
 import InvestorList from "./User/InvestorList";
 import DonatForm from "./Idea/DonateForm";
 import WithdrawForm from "./Idea/WithdrawForm";
-
+import DonationThankYouPage from "./Idea/DonationThankYouPage";
 function Routes() {
   return (
     <Switch>
@@ -40,10 +40,13 @@ function Routes() {
       <Route path="/chatLits/:ideaSlug">
         <InvestorList />
       </Route>
-
       <Route path="/ThankYouPage">
         <ThankYouPage />
       </Route>
+      <Route path="/thankyou">
+        <DonationThankYouPage />
+      </Route>
+
       <Route path="/checkout">
         <Payment />
       </Route>

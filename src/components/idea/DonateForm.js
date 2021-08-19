@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
+import { Redirect, useHistory, useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { donationIdea } from "../../store/actions/ideaAction";
 
 const DonateForm = () => {
@@ -12,7 +13,7 @@ const DonateForm = () => {
   const [idea, setIdea] = useState({
     amount: "",
   });
-
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
@@ -23,6 +24,7 @@ const DonateForm = () => {
     event.preventDefault();
     const newIdea = { ...idea, ideaId: _idea.id };
     dispatch(donationIdea(newIdea));
+    history.push("/thankyou");
   };
 
   return (
