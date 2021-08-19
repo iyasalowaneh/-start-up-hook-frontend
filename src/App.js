@@ -5,15 +5,15 @@ import Routes from "./components/Routes";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/NavBar/Footer";
 function App() {
-  return (
-    <div>
-      <NavBar />
+	return (
+		<div>
+			<NavBar />
 
-      <Routes />
+			<Routes />
 
-      <Footer />
-    </div>
-  );
+			<Footer />
+		</div>
+	);
 }
 
 export default App;
