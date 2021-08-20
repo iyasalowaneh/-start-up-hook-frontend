@@ -9,7 +9,7 @@ import { addMessage } from "../../store/actions/messageActions";
 import MessageItem from "./MessageItem";
 //Styling
 import "./Chat.css";
-import { TextArea, SendButton } from "../../style";
+import { TextArea, SendButton, Mdiv } from "../../style";
 const MessageList = () => {
 	const messages = useSelector((state) => state.messages.messages);
 	const users = useSelector((state) => state.users.users);
@@ -44,18 +44,23 @@ const MessageList = () => {
 	};
 
 	return (
-		<body>
+		<Mdiv>
 			{invMessages}
 			<form onSubmit={handleSubmit}>
-				<TextArea
-					onChange={handleChange}
-					name="content"
-					value={message.content}
-					placeholder="Type your message..."
-				></TextArea>
-				<SendButton type="submit">send</SendButton>
+				<div>
+					<TextArea
+						class="input-group mb-3"
+						onChange={handleChange}
+						name="content"
+						value={message.content}
+						placeholder="Type your message..."
+					></TextArea>
+					<SendButton class="btn btn-outline-secondary" type="submit">
+						send
+					</SendButton>
+				</div>
 			</form>
-		</body>
+		</Mdiv>
 	);
 };
 

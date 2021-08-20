@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { MesBox } from "../../style";
 import IdeaOwnerItem from "./IdeaOwnerItem";
 import InvestorItem from "./InvestorItem";
 
@@ -24,13 +25,13 @@ const InvestorList = () => {
 		.map((ideaOwner) => (
 			<IdeaOwnerItem ideaOwner={ideaOwner} key={ideaOwner.id} />
 		));
-	console.log(user.type);
 
 	return (
-		<>
+		<MesBox>
 			{invList}
+
 			{ownerList}
-		</>
+		</MesBox>
 	);
 };
 
