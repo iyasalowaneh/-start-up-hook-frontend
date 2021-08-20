@@ -1,8 +1,10 @@
 //react
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
-
+//styling
+import { MesBox } from "../../style";
 //components
+
 import IdeaOwnerItem from "./IdeaOwnerItem";
 import InvestorItem from "./InvestorItem";
 
@@ -21,19 +23,20 @@ const InvestorList = () => {
     .map((ideaInv) => <InvestorItem ideaInv={ideaInv} key={ideaInv.id} />);
   console.log(invList);
 
-  const ownerList = users
-    .filter((user) => user.id === idea.ownerId)
-    .map((ideaOwner) => (
-      <IdeaOwnerItem ideaOwner={ideaOwner} key={ideaOwner.id} />
-    ));
-  console.log(user.type);
 
-  return (
-    <>
-      {invList}
-      {ownerList}
-    </>
-  );
+	const ownerList = users
+		.filter((user) => user.id === idea.ownerId)
+		.map((ideaOwner) => (
+			<IdeaOwnerItem ideaOwner={ideaOwner} key={ideaOwner.id} />
+		));
+
+	return (
+		<MesBox>
+			{invList}
+
+			{ownerList}
+		</MesBox>
+	);
 };
 
 export default InvestorList;
