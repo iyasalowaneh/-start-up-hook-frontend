@@ -6,7 +6,7 @@ import { useState } from "react";
 //actions
 import { signin } from "../../store/actions/authAction";
 //styling
-import { Input, ButtonS, L } from "../../style";
+import { Input, ButtonS } from "../../style";
 const Signin = () => {
   const [user, SetUser] = useState({
     username: "",

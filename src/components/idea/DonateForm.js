@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory, useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { useHistory, useParams } from "react-router";
 import { donationIdea } from "../../store/actions/ideaAction";
 
 const DonateForm = () => {

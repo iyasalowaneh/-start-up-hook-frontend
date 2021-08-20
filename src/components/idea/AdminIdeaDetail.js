@@ -1,6 +1,6 @@
 //React
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Redirect, useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 //actions
 import { updateIdea } from "../../store/actions/ideaAction";
 //Styling

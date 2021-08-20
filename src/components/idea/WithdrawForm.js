@@ -1,4 +1,4 @@
-import { Button } from "../../style";
+import { Button, Form } from "../../style";
 import { Link } from "react-router-dom";
 import "../../withdraw.css";
 
@@ -8,7 +8,7 @@ const WithdrawForm = () => {
       <div class="row">
         <div class="col-75">
           <div class="container">
-            <form action="/action_page.php">
+            <Form action="/action_page.php">
               <div class="row">
                 <div class="col-50">
                   <h3>Billing Address</h3>
@@ -65,7 +65,7 @@ const WithdrawForm = () => {
               <Link to="/ThankYouPage">
                 <Button>Continue to checkout</Button>
               </Link>
-            </form>
+            </Form>
           </div>
         </div>
       </div>

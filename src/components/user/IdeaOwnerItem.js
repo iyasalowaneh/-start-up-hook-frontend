@@ -1,5 +1,4 @@
-import { useSelector } from "react-redux";
-import { useParams } from "react-router";
+//styling
 import { L, MesBox, ProfileImage } from "../../style";
 
 const IdeaOwnerItem = ({ ideaOwner }) => {
