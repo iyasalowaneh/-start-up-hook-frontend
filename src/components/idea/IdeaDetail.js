@@ -95,17 +95,17 @@ const IdeaDetail = () => {
                       </div>
                     </div>
                     <ButtonDiv>
-                      {idea.fundType === "donat" && (
+                      {idea.fundType === "donation" && (
                         <L to={`/donation/${idea.slug}`}>
                           <ButtonD> Donate </ButtonD>
                         </L>
                       )}
-                      {idea.fundType === "invest" && (
+                      {idea.fundType === "investment" && (
                         <L to={`/investment/${idea.slug}`}>
                           <ButtonI> Invest </ButtonI>
                         </L>
                       )}
-                      {idea.fundType === "consult" && (
+                      {idea.fundType === "consultation" && (
                         <L to={`/chatLits/${idea.slug}`}>
                           <ButtonC class="btn btn-success">
                             Consultation{" "}
@@ -148,11 +148,22 @@ const IdeaDetail = () => {
                   </div>
                 </div>
               </div>
-              <Link to={`/agreementform/${idea.slug}`}>
-                <button type="button" class="btn btn-outline-success">
-                  Agreement
-                </button>
-              </Link>
+              {idea.fundType === "investment" &&
+                idea.recievedFund === idea.fundAmount && (
+                  <Link to={`/agreementform/${idea.slug}`}>
+                    <button type="button" class="btn btn-outline-success">
+                      Agreement
+                    </button>
+                  </Link>
+                )}
+              {idea.fundType === "donation" &&
+                idea.recievedFund === idea.fundAmount && (
+                  <Link to={`/withdraw/${idea.slug}`}>
+                    <button type="button" class="btn btn-outline-success">
+                      Withdraw
+                    </button>
+                  </Link>
+                )}
             </DetailDiv>
           </div>
         </div>

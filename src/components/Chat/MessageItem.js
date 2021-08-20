@@ -1,13 +1,11 @@
+//react
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 
 //Styling
 import "./Chat.css";
 import { ChatImage, ChatImageR } from "../../style";
 const MessageItem = ({ msg }) => {
-  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
-  const messages = useSelector((state) => state.messages.messages);
 
   return (
     <>

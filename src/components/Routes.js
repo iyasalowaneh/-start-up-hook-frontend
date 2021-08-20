@@ -53,7 +53,7 @@ function Routes() {
       <Route path="/agreementform/:ideaSlug">
         <AgreementForm />
       </Route>
-      <Route path="/withdraw">
+      <Route path="/withdraw/:ideaSlug">
         <WithdrawForm />
       </Route>
 

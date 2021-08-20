@@ -7,6 +7,7 @@ const IdeaItem = (props) => {
   const ideaProgress = (idea.recievedFund / idea.fundAmount) * 100;
   const users = useSelector((state) => state.users.users);
   let user = users.find((user) => user.id === idea.ownerId);
+
   return (
     <>
       <div class="col-sm-3">
@@ -35,7 +36,6 @@ const IdeaItem = (props) => {
                 </div>
               </div>
             </>
-            <p class="card-text">{idea.ideaDescription}</p>
             <p class="card-text">
               <small class="text-muted">
                 Idea created at {idea.createdAt.slice(0, 10)} by{" "}

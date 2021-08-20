@@ -37,7 +37,6 @@ const IdeaItemHome = (props) => {
                 </div>
               </div>
             </>
-            <p class="card-text">{idea.ideaDescription}</p>
             <p class="card-text">
               <small class="text-muted">
                 {idea.createdAt.slice(0, 10)} by {user?.firstName}{" "}
