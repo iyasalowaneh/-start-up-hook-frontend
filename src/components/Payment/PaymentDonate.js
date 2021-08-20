@@ -106,7 +106,7 @@ const ResetButton = ({ onClick }) => (
     </svg>
   </button>
 );
-const Payment = () => {
+const PaymentDonate = () => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
@@ -171,11 +171,11 @@ const Payment = () => {
       <div className="ResultMessage">
         <img src="https://icons.veryicon.com/png/o/miscellaneous/cloud-call-center/success-24.png" />
         <h2>Thank you</h2>
-        successfully investment
-        <br />{" "}
         <P1>
-          {" "}
-          go back to <Link to="/">Home</Link>
+          For your great donation, you helped changing a person life.{" "}
+          <P1>
+            go back to <Link to="/">Home</Link>
+          </P1>
         </P1>
       </div>
       <ResetButton onClick={reset} />
@@ -248,4 +248,4 @@ const ELEMENTS_OPTIONS = {
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
 
-export default Payment;
+export default PaymentDonate;

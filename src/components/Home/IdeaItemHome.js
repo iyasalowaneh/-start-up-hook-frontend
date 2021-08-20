@@ -3,35 +3,39 @@ import { useSelector } from "react-redux";
 
 //styling
 import { IdeaDiv, Button, L } from "../../style";
+import DotLoader from "react-spinners/DotLoader";
 const IdeaItemHome = (props) => {
   const idea = props.idea;
 
-  const ideaProgress = (idea.recievedFund / idea.fundAmount) * 100;
+  const loading = useSelector((state) => state.ideas.loading);
+
+  const ideaProgress = (idea?.recievedFund / idea?.fundAmount) * 100;
   const users = useSelector((state) => state.users.users);
-  let user = users.find((user) => user.id === idea.ownerId);
+  let user = users.find((user) => user.id === idea?.ownerId);
+  if (loading) return <DotLoader />;
   return (
     <>
       <div class="col-sm-3">
         <IdeaDiv class="card">
-          <img src={idea.ideaPicture} class="card-img-top" alt={idea.name} />
+          <img src={idea?.ideaPicture} class="card-img-top" alt={idea?.name} />
           <div class="card-body">
-            <h5 class="card-title">{idea.ideaName}</h5>
+            <h5 class="card-title">{idea?.ideaName}</h5>
             <>
               <img
                 src="https://img.icons8.com/office/16/000000/money--v1.png"
                 alt="money"
               />
               <address>
-                {idea.recievedFund}$ of {idea.fundAmount}${" "}
+                {idea?.recievedFund}$ of {idea?.fundAmount}${" "}
               </address>
               <div class="progress">
                 <div
                   class="progress-bar progress-bar-striped bg-success"
                   role="progressbar"
                   style={{ width: `${ideaProgress}%` }}
-                  aria-valuenow={idea.recievedFund}
+                  aria-valuenow={idea?.recievedFund}
                   aria-valuemin="0"
-                  aria-valuemax={idea.fundAmount}
+                  aria-valuemax={idea?.fundAmount}
                 >
                   {parseInt(ideaProgress)}%
                 </div>
@@ -39,12 +43,12 @@ const IdeaItemHome = (props) => {
             </>
             <p class="card-text">
               <small class="text-muted">
-                {idea.createdAt.slice(0, 10)} by {user?.firstName}{" "}
+                {idea?.createdAt.slice(0, 10)} by {user?.firstName}{" "}
                 {user?.lastName}
               </small>
             </p>
 
-            <L to={`/ideas/${idea.slug}`}>
+            <L to={`/ideas/${idea?.slug}`}>
               <Button>More detials about my idea</Button>
             </L>
           </div>

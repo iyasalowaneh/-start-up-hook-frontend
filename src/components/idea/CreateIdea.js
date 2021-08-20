@@ -1,6 +1,6 @@
 // redux
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 //actions
@@ -8,7 +8,10 @@ import { createIdea } from "../../store/actions/ideaAction";
 
 //styling
 import { B, B2, IdeaInput, Form, IdeaInput2 } from "../../style";
+import PacmanLoader from "react-spinners/PacmanLoader";
 const CreateIdea = () => {
+  const loading = useSelector((state) => state.ideas.loading);
+
   const [idea, setIdea] = useState({
     ideaName: "",
     ideaPicture: "",
@@ -35,12 +38,13 @@ const CreateIdea = () => {
     event.preventDefault();
     dispatch(createIdea(idea, history));
   };
+  if (loading) return <PacmanLoader />;
 
   return (
     <>
       <Form onSubmit={handleSubmit}>
         <div class="container">
-          <h1>Let's create you idea</h1>
+          <h1>Let's create your idea</h1>
           <hr></hr>
           <label for="ideaName">
             <b>Idea Name</b>
