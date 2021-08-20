@@ -1,5 +1,5 @@
 //Styling
-import { FDiv } from "../../style";
+import { FDiv, counterBox } from "../../style";
 import { useSelector } from "react-redux";
 
 const Footer = () => {
@@ -24,7 +24,6 @@ const Footer = () => {
 
 						<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 							<h5 class="text-uppercase">Success story</h5>
-
 							<h1>{ideas.length}</h1>
 						</div>
 
