@@ -20,6 +20,7 @@ import InvestorList from "./User/InvestorList";
 import DonatForm from "./Idea/DonateForm";
 import WithdrawForm from "./Idea/WithdrawForm";
 import DonationThankYouPage from "./Idea/DonationThankYouPage";
+import PaymentDonate from "./Payment/PaymentDonate";
 function Routes() {
   return (
     <Switch>
@@ -49,6 +50,10 @@ function Routes() {
 
       <Route path="/checkout">
         <Payment />
+      </Route>
+
+      <Route path="/payment">
+        <PaymentDonate />
       </Route>
       <Route path="/agreementform/:ideaSlug">
         <AgreementForm />

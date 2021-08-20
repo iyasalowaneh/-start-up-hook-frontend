@@ -4,6 +4,7 @@ import * as actionTypes from "../actions/types";
 const initialState = {
   ideas: [],
   ideasUser: [],
+  loading: true,
 };
 
 const ideaReducer = (state = initialState, action) => {
@@ -12,12 +13,14 @@ const ideaReducer = (state = initialState, action) => {
       return {
         ...state,
         ideas: [...state.ideas, action.payload.newIdea],
+        loading: false,
       };
 
     case actionTypes.FETCH_IDEAS:
       return {
         ...state,
         ideas: action.payload,
+        loading: false,
       };
 
     case actionTypes.FETCH_IDEA_USER:

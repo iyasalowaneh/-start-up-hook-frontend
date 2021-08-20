@@ -7,7 +7,6 @@ export const Button = styled.button`
 
   color: #004e64;
   margin-top: 5px;
-
 `;
 export const L = styled(Link)`
   margin-left: 4px;
@@ -17,6 +16,7 @@ export const HomeDiv = styled.div`
 `;
 export const FDiv = styled.div`
   background-color: #00a5cf;
+  margin-top: auto;
 `;
 export const Image = styled.img`
   height: 600px;
@@ -28,7 +28,7 @@ export const Image = styled.img`
 export const H2 = styled.h2`
   font-family: cursive;
   text-align: center;
-  margin-top: 35px;
+  margin-top: 80px;
   color: #004e64;
 `;
 
@@ -54,13 +54,11 @@ export const DetailDiv = styled.div`
   border-width: 1px;
   border-color: gray;
   margin-left: 170px;
-
 `;
 export const Form = styled.form`
   margin-right: 400px;
   margin-left: 400px;
-  margin-top: 100px;
-  margin-bottom: 300px;
+  margin-top: 150px;
 `;
 export const lisImage = styled.img`
   height: 600px;
@@ -71,8 +69,8 @@ export const TextArea = styled.textarea`
 `;
 
 export const SendButton = styled.button`
-	width: 25%;
-	margin-left: 35%;
+  width: 25%;
+  margin-left: 35%;
 `;
 export const ChatImage = styled.img`
   float: left;
@@ -143,92 +141,92 @@ export const FooterL = styled(Link)`
 `;
 
 export const ButtonC = styled.button`
-	background-color: greenyellow;
-	margin-left: 4px;
+  background-color: greenyellow;
+  margin-left: 4px;
 
-	color: #004e64;
-	width: 114px;
-	margin-top: 5px;
+  color: #004e64;
+  width: 114px;
+  margin-top: 5px;
 `;
 
 export const ButtonI = styled.button`
-	background-color: #00f5d4;
-	margin-left: 4px;
+  background-color: #00f5d4;
+  margin-left: 4px;
 
-	color: #004e64;
-	width: 114px;
-	margin-top: 5px;
+  color: #004e64;
+  width: 114px;
+  margin-top: 5px;
 `;
 
 export const ButtonD = styled.button`
-	background-color: #0aff99;
-	margin-left: 4px;
+  background-color: #0aff99;
+  margin-left: 4px;
 
-	color: #004e64;
-	width: 114px;
-	margin-top: 5px;
+  color: #004e64;
+  width: 114px;
+  margin-top: 5px;
 `;
 export const ButtonP = styled.button`
-	background-color: #ade8f4;
-	color: #004e64;
-	width: 114px;
-	margin-top: 5px;
+  background-color: #ade8f4;
+  color: #004e64;
+  width: 114px;
+  margin-top: 5px;
 `;
 export const P1 = styled.p`
-	font-size: medium;
-	font-weight: normal;
+  font-size: medium;
+  font-weight: normal;
 `;
 export const L2 = styled(Link)`
-	text-decoration: unset;
-	font-size: large;
-	font-weight: normal;
-	margin-left: 110px;
+  text-decoration: unset;
+  font-size: large;
+  font-weight: normal;
+  margin-left: 110px;
 `;
 export const H4 = styled.h4`
-	margin-top: 40px;
+  margin-top: 40px;
 `;
 export const H5 = styled.h5`
-	margin-top: 17px;
-	color: white;
+  margin-top: 17px;
+  color: white;
 `;
 export const ButtonDiv = styled.div`
-	margin-top: 10px;
+  margin-top: 10px;
 `;
 export const Input = styled.input`
-	margin-left: 15px;
+  margin-left: 15px;
 `;
 export const ButtonS = styled.button`
-	background-color: unset;
-	color: #004e64;
-	width: 114px;
-	margin-top: 5px;
+  background-color: unset;
+  color: #004e64;
+  width: 114px;
+  margin-top: 5px;
 `;
 
 export const CounterBox = styled.h1`
-	color: black;
+  color: black;
 
-	text-align: center;
+  text-align: center;
 `;
 
 export const MesBox = styled.div`
-	width: 50%;
-	border-style: outset;
-	margin-left: 450px;
-	margin-top: 40px;
+  width: 50%;
+  border-style: outset;
+  margin-left: 450px;
+  margin-top: 40px;
 `;
 
 export const ProfileImage = styled.img`
-	border-radius: 50%;
+  border-radius: 50%;
 `;
 
 export const Mdiv = styled.div`
-	width: 40%;
-	height: 70%;
-	border-style: outset;
-	border: 2px solid grey;
-	border-radius: 12px;
-	align-content: center;
-	margin-left: 500px;
+  width: 40%;
+  height: 70%;
+  border-style: outset;
+  border: 2px solid grey;
+  border-radius: 12px;
+  align-content: center;
+  margin-left: 500px;
 `;
 export const B = styled.b`
   margin-right: 7px;
@@ -244,4 +242,9 @@ export const IdeaInput = styled.input`
 `;
 export const IdeaInput2 = styled.input`
   width: 100px;
+`;
+export const Body = styled.body`
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
 `;
