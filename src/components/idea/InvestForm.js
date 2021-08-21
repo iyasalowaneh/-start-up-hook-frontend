@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { useHistory, useParams } from "react-router";
 import { fundIdea } from "../../store/actions/ideaAction";
 import { BabeForme, Forme } from "../../style";
 
@@ -15,7 +14,7 @@ const InvestForm = () => {
     amount: "",
     agreement: "",
   });
-
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
@@ -25,6 +24,7 @@ const InvestForm = () => {
     event.preventDefault();
     const newIdea = { ...idea, ideaId: _idea.id };
     dispatch(fundIdea(newIdea));
+    history.push("/checkout");
   };
 
   return (
@@ -139,9 +139,7 @@ const InvestForm = () => {
               conditions of these Rules of Behavior.
             </label>
           </div>
-          <Link to="/checkout">
-            <button type="submit">Agree</button>
-          </Link>
+          <button type="submit">Agree</button>
         </BabeForme>
       </Forme>
     </form>
