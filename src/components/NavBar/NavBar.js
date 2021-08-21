@@ -24,7 +24,12 @@ const NavBar = () => {
           <Link to="/ideas" class="navbar-brand">
             Ideas
           </Link>
-
+          {!user ||
+            (user.type === "admin" && (
+              <Link to="/adminlist" class="navbar-brand">
+                Admin dashboard
+              </Link>
+            ))}
           {!user ||
             (user.type === "startup" && (
               <Link to="/createIdea" class="navbar-brand">

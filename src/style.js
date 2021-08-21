@@ -1,6 +1,43 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { Link } from "react-router-dom";
 
+export const GlobalStyle = createGlobalStyle`
+align-items: center;
+h1{
+    font-family: cursive;
+}
+
+body
+{
+  color: ${(props) => props.theme.mainColor} ;
+  background-color: ${(props) => props.theme.backgroundColor}
+
+};
+
+
+`;
+export const theme = {
+  light: {
+    mainColor: "#242424", // main font color
+    backgroundColor: "#f1faee", // main background color
+    pink: "#ff85a2",
+    red: "#ff3232",
+  },
+  dark: {
+    mainColor: "#fefafb", // main font color
+    backgroundColor: "#001219", // main background color
+    pink: "#ff85a2",
+    red: "#ff3232",
+  },
+};
+export const ThemeButton = styled.button`
+  font-size: 1em;
+  margin: 1.25em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  background-color: ${(props) => props.theme.mainColor};
+  color: ${(props) => props.theme.backgroundColor};
+`;
 export const Button = styled.button`
   background-color: #7ae582;
   margin-left: 4px;

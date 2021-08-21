@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import { donationIdea } from "../../store/actions/ideaAction";
-import { Form } from "../../style";
+import { Form, H2, P } from "../../style";
 
 const DonateForm = () => {
   const ideas = useSelector((state) => state.ideas.ideas);
@@ -30,18 +30,27 @@ const DonateForm = () => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <p>
-          The href attribute is required for an anchor to be keyboard
-          accessible. Provide a valid, navigable address as the href value. If
-          you cannot provide an href, but still nee
-        </p>
-        <input
-          type="number"
-          placeholder="Enter your donation Amount"
-          name="amount"
-          onChange={handleChange}
-          required
-        />
+        <H2>Donation</H2>
+        <P>
+          Thank you for your great generosity! We, at Start-up hook
+          organization, greatly appreciate your donation, and your sacrifice.
+          Your support helps to further our mission through supporting the
+          start-ups in the arab world. Your support is invaluable to us, thank
+          you again
+        </P>
+
+        <div class="input-group mb-3">
+          <input
+            type="number"
+            placeholder="Enter your donation Amount"
+            name="amount"
+            onChange={handleChange}
+            required
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </div>
         <button type="submit">donate</button>
       </Form>
     </>
