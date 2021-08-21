@@ -8,6 +8,7 @@ export const UPDATE_IDEA = "UPDATE_IDEA";
 export const FETCH_IDEA_USER = "FETCH_IDEA_USER";
 export const UPDATE_STATUS = "UPDATE_STATUS";
 export const DONAT_IDEA = "DONAT_IDEA";
+export const FETCH_DONOR_USER = "FETCH_DONOR_USER";
 
 //userList
 export const FETCH_USERS = "FETCH_USERS";
