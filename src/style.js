@@ -285,3 +285,13 @@ export const Body = styled.body`
 	display: flex;
 	flex-direction: column;
 `;
+
+export const ImageLogo = styled.img`
+	width: 360px;
+	height: 250px;
+`;
+
+export const Imgoo = styled.img`
+	width: 25px;
+	height: 25px;
+`;
