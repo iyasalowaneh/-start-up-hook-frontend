@@ -1,10 +1,12 @@
 //React
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useParams } from "react-router-dom";
+import { Link, Redirect, useParams } from "react-router-dom";
 //actions
 import { updateIdea } from "../../store/actions/ideaAction";
 //Styling
-import { DetailDiv, L, Button } from "../../style";
+import { DetailDiv, L, Button, ButtonP, H4, P1, L2 } from "../../style";
+import { BsFillChatDotsFill } from "react-icons/bs";
+
 const AdminIdeaDetail = () => {
   const ideas = useSelector((state) => state.ideas.ideas);
   const users = useSelector((state) => state.users.users);
@@ -16,7 +18,7 @@ const AdminIdeaDetail = () => {
 
   const dispatch = useDispatch();
 
-  const Approve = () => {
+  const approve = () => {
     dispatch(updateIdea({ ...updateIdea, status: true, ideaId: idea.id }));
   };
 
@@ -38,44 +40,42 @@ const AdminIdeaDetail = () => {
                   <h5 class="card-title">
                     {ideaOwner.firstName} {ideaOwner.lastName}
                   </h5>
-                  <h6>Email :{ideaOwner.email}</h6>
-                  <h6>Age :{ideaOwner.age}</h6>
-                  <h6>Country :{ideaOwner.country}</h6>
-                  <h6>Education :{ideaOwner.education}</h6>
-                  <h6> About me :{ideaOwner.experiance}</h6>
-                  <L to={`/chat/${ideaOwner.slug}`}>
-                    Chat with {ideaOwner.firstName}
-                  </L>
+                  <P1>Email : {ideaOwner.email}</P1>
+                  <P1>Age : {ideaOwner.age}</P1>
+                  <P1>Country : {ideaOwner.country}</P1>
+                  <P1>Education : {ideaOwner.education}</P1>
+                  <P1> About me :{ideaOwner.experiance}</P1>
+
+                  <L2 to={`/chatLits/${idea.slug}`}>
+                    <BsFillChatDotsFill />
+                  </L2>
                 </div>
               </div>
             </h1>
           </div>
-
           <div class="col-9">
             <DetailDiv class="card mb-3" style={{ maxwidth: "540px" }}>
               <div class="row g-0">
-                <div class="col-md-4">
+                <div class="col-md-12">
                   <img
                     src={idea.ideaPicture}
                     class="img-fluid rounded-start"
                     alt={idea.ideaName}
                   />
                 </div>
-                <div class="col-md-8">
+
+                <div class="col-md-10">
                   <div class="card-body">
                     <h5 class="card-title">{idea.ideaName}</h5>
-                    <h4>About the idea</h4>
-                    <p class="card-text">
-                      About the Idea :{idea.ideaDescription}
-                    </p>
                     <p class="card-text">Fund type: {idea.fundType}</p>
+
                     <img
                       src="https://img.icons8.com/office/16/000000/money--v1.png"
                       alt="money"
                     />
 
                     <address>
-                      {idea?.recievedFund}$ of {idea.fundAmount}${" "}
+                      {idea?.recievedFund}$ of {idea.fundAmount}$
                     </address>
                     <div class="progress">
                       <div
@@ -89,10 +89,30 @@ const AdminIdeaDetail = () => {
                         {parseInt(ideaProgress)}%
                       </div>
                     </div>
-                    <L to={`/${idea.ideaPdf}`}> Idea PDF</L>
 
-                    <Button onClick={() => Approve()}>Approve</Button>
-                    <Button>Reject</Button>
+                    <H4>About the idea</H4>
+                    <p class="card-text">
+                      About the Idea :{idea.ideaDescription}
+                    </p>
+
+                    <L to={`/${idea.ideaPdf}`}>
+                      <ButtonP>Idea PDF</ButtonP>
+                    </L>
+
+                    {idea.status === false ? (
+                      <>
+                        {" "}
+                        <Button onClick={() => approve()}>Approve </Button>
+                        <Button>Reject</Button>
+                      </>
+                    ) : (
+                      <div class="alert alert-success" role="alert">
+                        The idea has been approved,{" "}
+                        <Link to="/adminlist" class="alert-link">
+                          go back to Admin dashboard.
+                        </Link>
+                      </div>
+                    )}
 
                     <p class="card-text">
                       <small class="text-muted">
