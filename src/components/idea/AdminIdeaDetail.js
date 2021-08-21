@@ -21,6 +21,9 @@ const AdminIdeaDetail = () => {
   const approve = () => {
     dispatch(updateIdea({ ...updateIdea, status: true, ideaId: idea.id }));
   };
+  const reject = () => {
+    alert("the idea has been rejected");
+  };
 
   if (!idea) return <Redirect to="/" />;
 
@@ -101,9 +104,9 @@ const AdminIdeaDetail = () => {
 
                     {idea.status === false ? (
                       <>
-                        {" "}
                         <Button onClick={() => approve()}>Approve </Button>
-                        <Button>Reject</Button>
+
+                        <Button onClick={() => reject()}>reject</Button>
                       </>
                     ) : (
                       <div class="alert alert-success" role="alert">
