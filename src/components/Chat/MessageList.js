@@ -44,23 +44,25 @@ const MessageList = () => {
 	};
 
 	return (
-		<Mdiv>
-			{invMessages}
-			<form onSubmit={handleSubmit}>
-				<div>
-					<TextArea
-						class="input-group mb-3"
-						onChange={handleChange}
-						name="content"
-						value={message.content}
-						placeholder="Type your message..."
-					></TextArea>
-					<SendButton class="btn btn-outline-secondary" type="submit">
-						send
-					</SendButton>
-				</div>
-			</form>
-		</Mdiv>
+		<>
+			<Mdiv>{invMessages}</Mdiv>
+			<div>
+				<form onSubmit={handleSubmit}>
+					<Mdiv>
+						<TextArea
+							class="input-group mb-3"
+							onChange={handleChange}
+							name="content"
+							value={message.content}
+							placeholder="Type your message..."
+						></TextArea>
+						<SendButton class="btn btn-outline-secondary" type="submit">
+							send
+						</SendButton>
+					</Mdiv>
+				</form>
+			</div>
+		</>
 	);
 };
 
