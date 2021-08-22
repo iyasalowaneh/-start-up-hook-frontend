@@ -22,6 +22,7 @@ import WithdrawForm from "./Idea/WithdrawForm";
 import DonationThankYouPage from "./Idea/DonationThankYouPage";
 import PaymentDonate from "./Payment/PaymentDonate";
 import DashBoard from "./Idea/DashBoard";
+import GeneralDashBoard from "./Idea/GeneralDashBoard";
 function Routes() {
 	return (
 		<Switch>
@@ -75,6 +76,10 @@ function Routes() {
 
 			<Route path="/DashBoard">
 				<DashBoard />
+			</Route>
+
+			<Route path="/GeneralDashBoard">
+				<GeneralDashBoard />
 			</Route>
 
 			<Route path="/createIdea">

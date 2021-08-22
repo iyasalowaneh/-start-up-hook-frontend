@@ -295,3 +295,13 @@ export const Imgoo = styled.img`
 	width: 25px;
 	height: 25px;
 `;
+
+export const Charts = styled.div`
+	width: 300px;
+	height: 300px;
+	margin-left: 220px;
+`;
+
+export const Pad = styled.div`
+	margin-left: 20px;
+`;
