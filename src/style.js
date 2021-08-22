@@ -102,13 +102,13 @@ export const lisImage = styled.img`
   height: 600px;
 `;
 export const TextArea = styled.textarea`
-  width: 400px;
-  margin-left: 550px;
+  width: 350px;
+  margin-left: 570px;
 `;
 
 export const SendButton = styled.button`
-  width: 25%;
-  margin-left: 553px;
+  width: 350px;
+  margin-left: 570px;
 `;
 export const ChatImage = styled.img`
   float: left;
@@ -259,13 +259,13 @@ export const ProfileImage = styled.img`
 
 export const Mdiv = styled.div`
   margin-top: 50px;
-  width: 500px;
+  width: 400px;
   height: 400px;
   border-style: ridge;
   border: 2px black;
   border-radius: 12px;
   align-content: center;
-  margin-left: 500px;
+  margin-left: 550px;
   margin-bottom: 10px;
   overflow: scroll;
 `;

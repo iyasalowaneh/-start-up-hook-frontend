@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 //actions
-import { addMessage } from "../../store/actions/messageActions";
+import { addMessage, fetchMessage } from "../../store/actions/messageActions";
 
 //Components
 import MessageItem from "./MessageItem";
@@ -43,6 +43,13 @@ const MessageList = () => {
     SetMessage({ ...message, content: "" });
   };
 
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+      console.log("here");
+      dispatch(fetchMessage());
+    }, 3000);
+    return () => clearInterval(intervalID);
+  }, []);
   return (
     <>
       <Mdiv>{invMessages}</Mdiv>
