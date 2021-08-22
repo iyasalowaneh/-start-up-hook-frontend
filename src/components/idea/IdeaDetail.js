@@ -94,42 +94,45 @@ const IdeaDetail = () => {
                         {parseInt(ideaProgress)}%
                       </div>
                     </div>
-                    <ButtonDiv>
-                      {idea.fundType === "donation" && (
-                        <L to={`/donation/${idea.slug}`}>
-                          <ButtonD> Donate </ButtonD>
-                        </L>
-                      )}
-                      {idea.fundType === "investment" && (
-                        <L to={`/investment/${idea.slug}`}>
-                          <ButtonI> Invest </ButtonI>
-                        </L>
-                      )}
-                      {idea.fundType === "consultation" && (
-                        <L to={`/chatLits/${idea.slug}`}>
-                          <ButtonC class="btn btn-success">
-                            Consultation{" "}
-                          </ButtonC>
-                        </L>
-                      )}
-                      {idea.fundType === "all" && (
-                        <L to={`/donation/${idea.slug}`}>
-                          <ButtonD> Donate </ButtonD>
-                        </L>
-                      )}
-                      {idea.fundType === "all" && (
-                        <L to={`/investment/${idea.slug}`}>
-                          <ButtonI> Invest </ButtonI>
-                        </L>
-                      )}
-                      {idea.fundType === "all" && (
-                        <L to={`/chatLits/${idea.slug}`}>
-                          <ButtonC class="btn btn-success">
-                            Consultation{" "}
-                          </ButtonC>
-                        </L>
-                      )}
-                    </ButtonDiv>
+
+                    {idea.fundAmount !== idea.recievedFund && (
+                      <ButtonDiv>
+                        {idea.fundType === "donation" && (
+                          <L to={`/donation/${idea.slug}`}>
+                            <ButtonD> Donate </ButtonD>
+                          </L>
+                        )}
+                        {idea.fundType === "investment" && (
+                          <L to={`/investment/${idea.slug}`}>
+                            <ButtonI> Invest </ButtonI>
+                          </L>
+                        )}
+                        {idea.fundType === "consultation" && (
+                          <L to={`/chatLits/${idea.slug}`}>
+                            <ButtonC class="btn btn-success">
+                              Consultation{" "}
+                            </ButtonC>
+                          </L>
+                        )}
+                        {idea.fundType === "all" && (
+                          <L to={`/donation/${idea.slug}`}>
+                            <ButtonD> Donate </ButtonD>
+                          </L>
+                        )}
+                        {idea.fundType === "all" && (
+                          <L to={`/investment/${idea.slug}`}>
+                            <ButtonI> Invest </ButtonI>
+                          </L>
+                        )}
+                        {idea.fundType === "all" && (
+                          <L to={`/chatLits/${idea.slug}`}>
+                            <ButtonC class="btn btn-success">
+                              Consultation{" "}
+                            </ButtonC>
+                          </L>
+                        )}
+                      </ButtonDiv>
+                    )}
                     <H4>About the idea</H4>
                     <p class="card-text">
                       About the Idea :{idea.ideaDescription}

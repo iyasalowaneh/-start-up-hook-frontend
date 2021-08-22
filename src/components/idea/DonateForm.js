@@ -10,6 +10,8 @@ const DonateForm = () => {
   const ideaSlug = useParams().ideaSlug;
   const _idea = ideas.find((idea) => idea.slug === ideaSlug);
 
+  const remainingAmount = _idea.fundAmount - _idea.recievedFund;
+
   const [idea, setIdea] = useState({
     amount: "",
   });
@@ -38,7 +40,8 @@ const DonateForm = () => {
           start-ups in the arab world. Your support is invaluable to us, thank
           you again
         </P>
-
+        <br />
+        <P>Remaining amount {remainingAmount}$ </P>
         <div class="input-group mb-3">
           <input
             type="number"
