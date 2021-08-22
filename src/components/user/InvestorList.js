@@ -26,6 +26,8 @@ const InvestorList = () => {
     .map((ideaOwner) => (
       <IdeaOwnerItem ideaOwner={ideaOwner} key={ideaOwner.id} />
     ));
+  console.log(invList);
+  console.log(ownerList);
 
   return (
     <>
