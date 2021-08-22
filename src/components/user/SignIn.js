@@ -31,6 +31,7 @@ const Signin = () => {
         required
       />
       <Input
+        type="password"
         placeholder="Enter password"
         name="password"
         onChange={handleChange}
@@ -39,7 +40,7 @@ const Signin = () => {
 
       <ButtonS type="submit">Sign In</ButtonS>
       <Link to="/signup">
-        <ButtonS type="button">SignUp</ButtonS>
+        <ButtonS type="button">Sign Up</ButtonS>
       </Link>
     </form>
   );

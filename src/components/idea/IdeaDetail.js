@@ -14,12 +14,16 @@ import {
   ButtonD,
   ButtonP,
   ButtonDiv,
+  ImageD,
+  Abutton,
+  DivColor,
 } from "../../style";
 import { BsFillChatDotsFill } from "react-icons/bs";
 
 const IdeaDetail = () => {
   const ideas = useSelector((state) => state.ideas.ideas);
   const users = useSelector((state) => state.users.users);
+  const user = useSelector((state) => state.user.user);
 
   const ideaSlug = useParams().ideaSlug;
   const idea = ideas.find((idea) => idea.slug === ideaSlug);
@@ -34,7 +38,7 @@ const IdeaDetail = () => {
         <div class="row">
           <div class="col-2">
             <h1>
-              <div class="card" style={{ width: "18rem" }}>
+              <DivColor class="card" style={{ width: "18rem" }}>
                 <img
                   src={ideaOwner.profilePicture}
                   class="card-img-top"
@@ -50,11 +54,13 @@ const IdeaDetail = () => {
                   <P1>Education : {ideaOwner.education}</P1>
                   <P1> About me :{ideaOwner.experiance}</P1>
 
-                  <L2 to={`/chatLits/${idea.slug}`}>
-                    <BsFillChatDotsFill />
-                  </L2>
+                  {user && (
+                    <L2 to={`/chatLits/${idea.slug}`}>
+                      <BsFillChatDotsFill />
+                    </L2>
+                  )}
                 </div>
-              </div>
+              </DivColor>
             </h1>
           </div>
 
@@ -62,7 +68,7 @@ const IdeaDetail = () => {
             <DetailDiv class="card mb-3" style={{ maxwidth: "540px" }}>
               <div class="row g-0">
                 <div class="col-md-12">
-                  <img
+                  <ImageD
                     src={idea.ideaPicture}
                     class="img-fluid rounded-start"
                     alt={idea.ideaName}
@@ -94,42 +100,45 @@ const IdeaDetail = () => {
                         {parseInt(ideaProgress)}%
                       </div>
                     </div>
-                    <ButtonDiv>
-                      {idea.fundType === "donation" && (
-                        <L to={`/donation/${idea.slug}`}>
-                          <ButtonD> Donate </ButtonD>
-                        </L>
-                      )}
-                      {idea.fundType === "investment" && (
-                        <L to={`/investment/${idea.slug}`}>
-                          <ButtonI> Invest </ButtonI>
-                        </L>
-                      )}
-                      {idea.fundType === "consultation" && (
-                        <L to={`/chatLits/${idea.slug}`}>
-                          <ButtonC class="btn btn-success">
-                            Consultation{" "}
-                          </ButtonC>
-                        </L>
-                      )}
-                      {idea.fundType === "all" && (
-                        <L to={`/donation/${idea.slug}`}>
-                          <ButtonD> Donate </ButtonD>
-                        </L>
-                      )}
-                      {idea.fundType === "all" && (
-                        <L to={`/investment/${idea.slug}`}>
-                          <ButtonI> Invest </ButtonI>
-                        </L>
-                      )}
-                      {idea.fundType === "all" && (
-                        <L to={`/chatLits/${idea.slug}`}>
-                          <ButtonC class="btn btn-success">
-                            Consultation{" "}
-                          </ButtonC>
-                        </L>
-                      )}
-                    </ButtonDiv>
+
+                    {idea.fundAmount !== idea.recievedFund && (
+                      <ButtonDiv>
+                        {idea.fundType === "donation" && (
+                          <L to={`/donation/${idea.slug}`}>
+                            <ButtonD> Donate </ButtonD>
+                          </L>
+                        )}
+                        {idea.fundType === "investment" && (
+                          <L to={`/investment/${idea.slug}`}>
+                            <ButtonI> Invest </ButtonI>
+                          </L>
+                        )}
+                        {idea.fundType === "consultation" && (
+                          <L to={`/chatLits/${idea.slug}`}>
+                            <ButtonC class="btn btn-success">
+                              Consultation{" "}
+                            </ButtonC>
+                          </L>
+                        )}
+                        {idea.fundType === "all" && (
+                          <L to={`/donation/${idea.slug}`}>
+                            <ButtonD> Donate </ButtonD>
+                          </L>
+                        )}
+                        {idea.fundType === "all" && (
+                          <L to={`/investment/${idea.slug}`}>
+                            <ButtonI> Invest </ButtonI>
+                          </L>
+                        )}
+                        {idea.fundType === "all" && (
+                          <L to={`/chatLits/${idea.slug}`}>
+                            <ButtonC class="btn btn-success">
+                              Consultation{" "}
+                            </ButtonC>
+                          </L>
+                        )}
+                      </ButtonDiv>
+                    )}
                     <H4>About the idea</H4>
                     <p class="card-text">
                       About the Idea :{idea.ideaDescription}
@@ -151,17 +160,17 @@ const IdeaDetail = () => {
               {idea.fundType === "investment" &&
                 idea.recievedFund === idea.fundAmount && (
                   <Link to={`/agreementform/${idea.slug}`}>
-                    <button type="button" class="btn btn-outline-success">
+                    <Abutton type="button" class="btn btn-outline-success">
                       Agreement
-                    </button>
+                    </Abutton>
                   </Link>
                 )}
               {idea.fundType === "donation" &&
                 idea.recievedFund === idea.fundAmount && (
                   <Link to={`/withdraw/${idea.slug}`}>
-                    <button type="button" class="btn btn-outline-success">
+                    <Abutton type="button" class="btn btn-outline-success">
                       Withdraw
-                    </button>
+                    </Abutton>
                   </Link>
                 )}
             </DetailDiv>

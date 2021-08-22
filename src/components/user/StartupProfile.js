@@ -46,7 +46,7 @@ const Profile = () => {
           <p>Please fill these.</p>
           <hr></hr>
           <label for="education">
-            <b>education</b>
+            <b>Education</b>
           </label>
           <input
             type="text"
@@ -57,7 +57,7 @@ const Profile = () => {
           />
 
           <label for="experiance">
-            <b>experiance</b>
+            <b>Experiance</b>
           </label>
           <input
             type="text"
@@ -68,18 +68,18 @@ const Profile = () => {
           />
 
           <label for="age">
-            <b>age</b>
+            <b>Age</b>
           </label>
           <input
-            type="number"
-            placeholder="Enter age"
+            type="text"
+            placeholder="Enter your age"
             name="age"
             onChange={handleChange}
             required
           />
 
           <label for="country">
-            <b>country</b>
+            <b>Country</b>
           </label>
           <input
             type="text"

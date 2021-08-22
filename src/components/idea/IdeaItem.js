@@ -1,6 +1,6 @@
 //styling
 import { useSelector } from "react-redux";
-import { IdeaDiv, Button, L } from "../../style";
+import { IdeaDiv, ButtonCard, L, ListImage, Divv } from "../../style";
 const IdeaItem = (props) => {
   const idea = props.idea;
 
@@ -12,9 +12,15 @@ const IdeaItem = (props) => {
     <>
       <div class="col-sm-3">
         <IdeaDiv class="card">
-          <img src={idea.ideaPicture} class="card-img-top" alt={idea.name} />
+          <ListImage
+            src={idea.ideaPicture}
+            class="card-img-top"
+            alt={idea.name}
+          />
           <div class="card-body">
-            <h5 class="card-title">{idea.ideaName}</h5>
+            <Divv>
+              <h5 class="card-title">{idea.ideaName}</h5>
+            </Divv>
             <>
               <img
                 src="https://img.icons8.com/office/16/000000/money--v1.png"
@@ -44,7 +50,7 @@ const IdeaItem = (props) => {
             </p>
 
             <L to={`/ideas/${idea.slug}`}>
-              <Button>More detials about my idea</Button>
+              <ButtonCard>More detials about my idea</ButtonCard>
             </L>
           </div>
         </IdeaDiv>
