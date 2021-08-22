@@ -1,20 +1,23 @@
+import { Imgoo, Pad } from "../../style";
+
 const DonorItem = ({ ideadon }) => {
 	return (
-		<tr>
-			<td scope="row">
-				{" "}
-				<span class="fa fa-briefcase mr-1"></span> donation
-			</td>
-			<td>
-				<span class="fa fa-cc-mastercard"></span>
-			</td>
-			<td class="text-muted">{ideadon.createdAt}</td>
-			<td class="d-flex justify-content-end align-items-center">
-				{" "}
-				<span class="fa fa-long-arrow-up mr-1"></span>
-				{ideadon.amount}
-			</td>
-		</tr>
+		<>
+			<tr>
+				<td scope="row"> donation</td>
+				<td>
+					<span class="fa fa-cc-mastercard">DN</span>
+				</td>
+				<td class="text-muted">{ideadon.createdAt}</td>
+
+				<td class="d-flex justify-content-start align-items-center">
+					{ideadon.amount}
+					<Pad>
+						<Imgoo src="https://www.iconpacks.net/icons/1/free-money-icon-799-thumb.png" />
+					</Pad>{" "}
+				</td>
+			</tr>
+		</>
 	);
 };
 

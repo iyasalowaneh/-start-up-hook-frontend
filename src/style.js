@@ -377,3 +377,13 @@ export const ListImage2 = styled.img`
   height: 230px;
   border-radius: 8px;
 `;
+
+export const Charts = styled.div`
+	width: 300px;
+	height: 300px;
+	margin-left: 220px;
+`;
+
+export const Pad = styled.div`
+	margin-left: 20px;
+`;
