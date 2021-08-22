@@ -40,7 +40,7 @@ const Signin = () => {
 
       <ButtonS type="submit">Sign In</ButtonS>
       <Link to="/signup">
-        <ButtonS type="button">SignUp</ButtonS>
+        <ButtonS type="button">Sign Up</ButtonS>
       </Link>
     </form>
   );

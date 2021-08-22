@@ -19,7 +19,7 @@ body
 export const theme = {
   light: {
     mainColor: "#242424", // main font color
-    backgroundColor: "#f1faee", // main background color
+    backgroundColor: "#fff", // main background color
     pink: "#ff85a2",
     red: "#ff3232",
   },
@@ -52,9 +52,10 @@ export const HomeDiv = styled.div`
   margin-top: 50px;
 `;
 export const FDiv = styled.div`
-  background-color: #00a5cf;
+  background-color: #14213d;
   margin-top: auto;
 `;
+
 export const Image = styled.img`
   height: 600px;
   padding-left: 50px;
@@ -65,7 +66,6 @@ export const Image = styled.img`
 export const H2 = styled.h2`
   font-family: cursive;
   text-align: center;
-  margin-top: 80px;
   color: #004e64;
 `;
 
@@ -85,6 +85,10 @@ export const IdeaDiv = styled.div`
   margin-left: 25px;
   margin-right: 25px;
   height: 550px;
+  border-radius: 8px;
+  background-color: #e5e5e5;
+  margin-bottom: 15px;
+  color: black;
 `;
 
 export const DetailDiv = styled.div`
@@ -92,6 +96,9 @@ export const DetailDiv = styled.div`
   border-width: 1px;
   border-color: gray;
   margin-left: 170px;
+  border-radius: 14px;
+  background-color: #e5e5e5;
+  color: black;
 `;
 export const Form = styled.form`
   margin-right: 400px;
@@ -107,8 +114,9 @@ export const TextArea = styled.textarea`
 `;
 
 export const SendButton = styled.button`
-  width: 350px;
-  margin-left: 570px;
+  width: 10px;
+  background-color: unset;
+  color: black;
 `;
 export const ChatImage = styled.img`
   float: left;
@@ -119,7 +127,7 @@ export const ChatImage = styled.img`
 `;
 export const ChatImageR = styled.img`
   float: right;
-  max-width: 60px;
+  max-width: 50px;
   width: 100%;
   margin-left: 20px;
   margin-right: 0;
@@ -232,12 +240,15 @@ export const ButtonDiv = styled.div`
 `;
 export const Input = styled.input`
   margin-left: 15px;
+  border-radius: 4px;
+  width: 210px;
 `;
 export const ButtonS = styled.button`
   background-color: unset;
-  color: #004e64;
+  color: #ffff;
   width: 114px;
   margin-top: 5px;
+  margin-left: -20px;
 `;
 
 export const CounterBox = styled.h1`
@@ -303,6 +314,7 @@ export const Imgoo = styled.img`
 export const ListImage = styled.img`
   width: 326px;
   height: 230px;
+  border-radius: 8px;
 `;
 export const Divv = styled.div`
   width: 326px;
@@ -318,4 +330,50 @@ export const PB = styled.b`
 `;
 export const Label = styled.label`
   margin-top: 20px;
+`;
+export const ButtonCard = styled.button`
+  background-color: #fca311;
+  border-radius: 8px;
+
+  color: #004e64;
+  margin-top: 5px;
+`;
+export const ImageD = styled.img`
+  border-radius: 14px;
+  height: 500px;
+  width: 794px;
+`;
+export const Abutton = styled.button`
+  width: 700px;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+`;
+export const DivColor = styled.div`
+  background-color: #e5e5e5;
+  color: black;
+  border-radius: 14px;
+`;
+
+export const DivB = styled.div`
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 20px;
+  margin-top: 80px;
+  border-color: gray;
+  border-radius: 14px;
+  margin-left: 140px;
+  margin-right: 140px;
+`;
+export const P6 = styled.p`
+  font-family: cursive;
+  text-align: center;
+  color: #004e64;
+  margin-left: 100px;
+  margin-right: 100px;
+`;
+export const ListImage2 = styled.img`
+  width: 255px;
+  height: 230px;
+  border-radius: 8px;
 `;

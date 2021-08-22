@@ -2,7 +2,7 @@
 import { useSelector } from "react-redux";
 
 //styling
-import { IdeaDiv, Button, L } from "../../style";
+import { IdeaDiv, ButtonCard, L, ListImage2, Divv } from "../../style";
 import DotLoader from "react-spinners/DotLoader";
 const IdeaItemHome = (props) => {
   const idea = props.idea;
@@ -17,9 +17,15 @@ const IdeaItemHome = (props) => {
     <>
       <div class="col-sm-3">
         <IdeaDiv class="card">
-          <img src={idea?.ideaPicture} class="card-img-top" alt={idea?.name} />
+          <ListImage2
+            src={idea?.ideaPicture}
+            class="card-img-top"
+            alt={idea?.name}
+          />
           <div class="card-body">
-            <h5 class="card-title">{idea?.ideaName}</h5>
+            <Divv>
+              <h5 class="card-title">{idea?.ideaName}</h5>
+            </Divv>
             <>
               <img
                 src="https://img.icons8.com/office/16/000000/money--v1.png"
@@ -49,7 +55,7 @@ const IdeaItemHome = (props) => {
             </p>
 
             <L to={`/ideas/${idea?.slug}`}>
-              <Button>More detials about my idea</Button>
+              <ButtonCard>More detials about my idea</ButtonCard>
             </L>
           </div>
         </IdeaDiv>
