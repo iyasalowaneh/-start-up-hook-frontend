@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Chat.css";
 import { ChatImage, ChatImageR } from "../../style";
 import { NoteTwoTone } from "@material-ui/icons";
+
 const MessageItem = ({ msg }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
@@ -31,7 +32,7 @@ const MessageItem = ({ msg }) => {
       )}
 
       {user.id === msg.reciverId && (
-        <div class="container darker">
+        <div class="container darker container22">
           <ChatImageR
             src={userImage}
             alt="Avatar"

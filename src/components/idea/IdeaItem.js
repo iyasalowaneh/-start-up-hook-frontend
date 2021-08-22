@@ -1,6 +1,6 @@
 //styling
 import { useSelector } from "react-redux";
-import { IdeaDiv, Button, L, ListImage, Divv } from "../../style";
+import { IdeaDiv, ButtonCard, L, ListImage, Divv } from "../../style";
 const IdeaItem = (props) => {
   const idea = props.idea;
 
@@ -50,7 +50,7 @@ const IdeaItem = (props) => {
             </p>
 
             <L to={`/ideas/${idea.slug}`}>
-              <Button>More detials about my idea</Button>
+              <ButtonCard>More detials about my idea</ButtonCard>
             </L>
           </div>
         </IdeaDiv>

@@ -8,6 +8,8 @@ import { addMessage, fetchMessage } from "../../store/actions/messageActions";
 //Components
 import MessageItem from "./MessageItem";
 //Styling
+import { BsFillCursorFill } from "react-icons/bs";
+
 import "./Chat.css";
 import { TextArea, SendButton, Mdiv } from "../../style";
 const MessageList = () => {
@@ -64,7 +66,7 @@ const MessageList = () => {
               placeholder="Type your message..."
             ></TextArea>
             <SendButton class="btn btn-outline-secondary" type="submit">
-              send
+              <BsFillCursorFill />
             </SendButton>
           </div>
         </form>
