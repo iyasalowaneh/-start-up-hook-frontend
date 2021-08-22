@@ -31,6 +31,7 @@ const Signin = () => {
         required
       />
       <Input
+        type="password"
         placeholder="Enter password"
         name="password"
         onChange={handleChange}
