@@ -19,29 +19,27 @@ const MessageItem = ({ msg }) => {
 
   return (
     <>
-      {user.id === msg.senderId && (
-        <div class="container22">
-          <ChatImage
-            src={user.profilePicture}
-            alt="Avatar"
-            style={{ width: "100%" }}
-          />
-          <p>{msg.content}</p>
-          <span class="time-right"></span>
-        </div>
+      {user.id === msg.reciverId && (
+        <li class="you">
+          <div class="entete">
+            <span class="status green"></span>
+            <h3>10:12AM, Today</h3>
+          </div>
+          <div class="triangle"></div>
+          <div class="message">{msg.content}</div>
+        </li>
       )}
 
-      {user.id === msg.reciverId && (
-        <div class="container darker container22">
-          <ChatImageR
-            src={userImage}
-            alt="Avatar"
-            class="right"
-            style={{ width: "100%" }}
-          />
-          <p>{msg.content}</p>
-          <span class="time-left"></span>
-        </div>
+      {user.id === msg.senderId && (
+        <li class="me">
+          <div class="entete">
+            <h3>10:12AM, Today</h3>
+            <h2>Vincent</h2>
+            <span class="status blue"></span>
+          </div>
+          <div class="triangle"></div>
+          <div class="message">{msg.content}</div>
+        </li>
       )}
     </>
   );

@@ -5,15 +5,15 @@ import { useParams } from "react-router";
 //styling
 import { MesBox } from "../../style";
 //components
-
+import "./Chat.css";
 import IdeaOwnerItem from "./IdeaOwnerItem";
 import InvestorItem from "./InvestorItem";
-
-const InvestorList = () => {
+import MessageList from "../Chat/MessageItem";
+const InvestorList = ({ idea }) => {
   const ideas = useSelector((state) => state.ideas.ideas);
   const user = useSelector((state) => state.user.user);
   const ideaSlug = useParams().ideaSlug;
-  const idea = ideas.find((idea) => idea.slug === ideaSlug);
+  // const idea = ideas.find((idea) => idea.slug === ideaSlug);
   const ideaUsers = useSelector((state) => state.ideasUser.ideasUser);
   const users = useSelector((state) => state.users.users);
   const invList = ideaUsers
@@ -26,14 +26,28 @@ const InvestorList = () => {
     .map((ideaOwner) => (
       <IdeaOwnerItem ideaOwner={ideaOwner} key={ideaOwner.id} />
     ));
-  console.log(invList);
-  console.log(ownerList);
 
   return (
     <>
-      {user.type === "startup" && <MesBox>{invList}</MesBox>}
-      {user.type === "investor" && <MesBox>{ownerList}</MesBox>}
-      {user.type === "consultant" && <MesBox>{ownerList}</MesBox>}
+      <img
+        className="image"
+        src="https://images.fineartamerica.com/images-medium-large-5/neon-blue-speech-bubble-ikon-ikon-images.jpg"
+      />
+      {user.type === "startup" && (
+        <aside>
+          <ul>{invList}</ul>
+        </aside>
+      )}
+      {user.type === "investor" && (
+        <aside>
+          <ul>{ownerList}</ul>
+        </aside>
+      )}
+      {user.type === "consultant" && (
+        <aside>
+          <ul>{ownerList}</ul>
+        </aside>
+      )}
     </>
   );
 };
