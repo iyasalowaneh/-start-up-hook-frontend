@@ -1,36 +1,28 @@
 //styling
-import { L, MesBox, ProfileImage } from "../../style";
+import { useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 
 const IdeaOwnerItem = ({ ideaOwner }) => {
-	return (
-		// <div class="list-group">
-		// 	<L
-		// 		to={`/chat/${ideaOwner.slug}`}
-		// 		class="list-group-item list-group-item-action"
-		// 	>
-		// 		<div class="d-flex w-100 justify-content-between">
-		// 			<h5 class="mb-1">{ideaOwner.firstName}</h5>
-		// 			<small class="text-muted">3 days ago</small>
-		// 		</div>
-		// 		<p class="mb-1">Some placeholder content in a paragraph.</p>
-		// 		<small class="text-muted">And some muted small print.</small>
-		// 	</L>
-		// </div>
+  const ideas = useSelector((state) => state.ideas.ideas);
 
-		<div class="list-group">
-			<a class="list-group-item list-group-item-action">
-				<div class="d-flex w-100 justify-content-between">
-					<L to={`/chat/${ideaOwner.slug}`}>
-						<ProfileImage src={ideaOwner.profilePicture} width="50px" />
-					</L>
-					<h5 class="mb-1">{ideaOwner.firstName}</h5>
-					<small class="text-muted">online</small>
-				</div>
-				<p class="mb-1">available</p>
-				<small class="text-muted"></small>
-			</a>
-		</div>
-	);
+  const ideaSlug = useParams().ideaSlug;
+  const idea = ideas.find((idea) => idea.slug === ideaSlug);
+  return (
+    <Link to={`/ideas/${idea.slug}/chat/${ideaOwner.slug}`}>
+      <li>
+        <img src={ideaOwner.profilePicture} alt=" " width="40px" />
+        <div>
+          <h2>
+            {ideaOwner.firstName} {ideaOwner.lastName}
+          </h2>
+          <h3>
+            <span class="status green"></span>
+            online
+          </h3>
+        </div>
+      </li>
+    </Link>
+  );
 };
 
 export default IdeaOwnerItem;

@@ -1,22 +1,27 @@
-//styling
-
-import { L, ProfileImage } from "../../style";
+import { useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 
 const InvestorItem = ({ ideaInv }) => {
+  const ideas = useSelector((state) => state.ideas.ideas);
+
+  const ideaSlug = useParams().ideaSlug;
+  const idea = ideas.find((idea) => idea.slug === ideaSlug);
+
   return (
-    <div class="list-group">
-      <a class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-          <L to={`/chat/${ideaInv.slug}`}>
-            <ProfileImage src={ideaInv.profilePicture} width="50px" />
-          </L>
-          <h5 class="mb-1">{ideaInv.firstName}</h5>
-          <small class="text-muted">online</small>
+    <Link to={`/ideas/${idea.slug}/chat/${ideaInv.slug}`}>
+      <li>
+        <img src={ideaInv.profilePicture} alt=" " width="40px" />
+        <div>
+          <h2>
+            {ideaInv.firstName} {ideaInv.lastName}
+          </h2>
+          <h3>
+            <span class="status green"></span>
+            online
+          </h3>
         </div>
-        <p class="mb-1">He has invested in your Idea </p>
-        <small class="text-muted"></small>
-      </a>
-    </div>
+      </li>
+    </Link>
   );
 };
 

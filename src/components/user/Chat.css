@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 body {
@@ -7,8 +7,8 @@ body {
 }
 #container {
   width: 750px;
-  height: 500px;
-  background: rebeccapurple;
+  height: 800px;
+  background: #eff3f7;
   margin: 0 auto;
   font-size: 0;
   border-radius: 5px;
@@ -16,14 +16,11 @@ body {
 }
 aside {
   width: 260px;
-  height: 500px;
+  height: 800px;
   background-color: #3b3e49;
   display: inline-block;
   font-size: 15px;
   vertical-align: top;
-  position: relative;
-  left: 28.5%;
-  margin-top: 1.5%;
 }
 main {
   width: 490px;
@@ -145,7 +142,7 @@ main header h3 {
   margin: 0;
   list-style-type: none;
   overflow-y: scroll;
-  height: 190px;
+  height: 535px;
   border-top: 2px solid #fff;
   border-bottom: 2px solid #fff;
 }
@@ -228,27 +225,4 @@ main footer a {
   margin-left: 333px;
   margin-top: 5px;
   display: inline-block;
-}
-.msg {
-  position: absolute;
-  left: 45%;
-  top: 18%;
-  height: 500px;
-  background-color: white;
-}
-aside ul {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  overflow-y: scroll;
-}
-
-aside ul::-webkit-scrollbar {
-  display: none;
-}
-.image {
-  position: absolute;
-  left: 45%;
-  top: 18%;
-  height: 500px;
-  width: 490px;
-}
+} */
