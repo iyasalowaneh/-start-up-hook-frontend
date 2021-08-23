@@ -23,6 +23,7 @@ import DonationThankYouPage from "./Idea/DonationThankYouPage";
 import PaymentDonate from "./Payment/PaymentDonate";
 import DashBoard from "./Idea/DashBoard";
 import GeneralDashBoard from "./Idea/GeneralDashBoard";
+import Gdash from "./Idea/Gdash";
 function Routes() {
 	return (
 		<Switch>
@@ -54,6 +55,9 @@ function Routes() {
 				<Payment />
 			</Route>
 
+			<Route path="/gdash">
+				<Gdash />
+			</Route>
 			<Route path="/payment">
 				<PaymentDonate />
 			</Route>

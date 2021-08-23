@@ -386,3 +386,9 @@ export const DivLimit = styled.div`
 export const HH1 = styled.h1`
 	margin-left: 160px;
 `;
+
+export const FullDiv = styled.div`
+	width: 100%;
+	height: 100%;
+	margin-top: 10%;
+`;

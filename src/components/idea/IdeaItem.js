@@ -1,6 +1,6 @@
 //styling
 import { useSelector } from "react-redux";
-import { IdeaDiv, ButtonCard, L, ListImage, Divv } from "../../style";
+import { ButtonCard, L, ListImage } from "../../style";
 const IdeaItem = (props) => {
 	const idea = props.idea;
 
@@ -10,57 +10,19 @@ const IdeaItem = (props) => {
 
 	return (
 		<>
-			{/* <div class="col-sm-3">
-				< class="card">
-					<ListImage
-						src={idea.ideaPicture}
-						class="card-img-top"
-						alt={idea.name}
-					/>
-					<div class="card-body">
-						<Divv>
-							<h5 class="card-title">{idea.ideaName}</h5>
-						</Divv>
-						<>
-							<img
-								src="https://img.icons8.com/office/16/000000/money--v1.png"
-								alt="money"
-							/>
-							<address>
-								{idea.recievedFund}$ of {idea.fundAmount}${" "}
-							</address>
-							<div class="progress">
-								<div
-									class="progress-bar progress-bar-striped bg-success"
-									role="progressbar"
-									style={{ width: `${ideaProgress}%` }}
-									aria-valuenow={idea.recievedFund}
-									aria-valuemin="0"
-									aria-valuemax={idea.fundAmount}
-								>
-									{parseInt(ideaProgress)}%
-								</div>
-							</div>
-						</>
-						<p class="card-text">
-							<small class="text-muted">
-								Idea created at {idea.createdAt.slice(0, 10)} by{" "}
-								{user?.firstName} {user?.lastName}
-							</small>
-						</p>
-
-						<L to={`/ideas/${idea.slug}`}>
-							<ButtonCard>More detials about my idea</ButtonCard>
-						</L>
-					</div>
-				</IdeaDiv>
-			</div> */}
 			<div class="col-sm-4">
 				<div class="profile-card-4 text-center">
 					<ListImage src={idea.ideaPicture} class="img img-responsive" />
 					<div class="profile-content">
 						<div class="profile-name">{idea.ideaName}</div>
 						<div class="profile-description">
+							<h5>Fund Typy</h5>
+							{idea.fundType === "all" && (
+								<p>Donation , Investment or Consultation</p>
+							)}
+							{idea.fundType === "donation" && <p>Donation</p>}
+							{idea.fundType === "investmen" && <p>Investment</p>}
+							{idea.fundType === "consultation" && <p>Consultation</p>}
 							<img
 								src="https://img.icons8.com/office/16/000000/money--v1.png"
 								alt="money"
@@ -68,7 +30,6 @@ const IdeaItem = (props) => {
 							<address>
 								{idea.recievedFund}$ of {idea.fundAmount}${" "}
 							</address>
-							{idea.ideaDescription}
 						</div>
 						<div class="row">
 							<div class="col-xs-4">
