@@ -1,175 +1,183 @@
-// import { useSelector } from "react-redux";
-// import DonorItem from "./DonorItem";
-// import "./DashBoard.css";
-// import { Charts, ImageLogo, Imgoo } from "../../style";
-// import InvTransaction from "./InvTransaction";
-// import { Pie, Doughnut } from "react-chartjs-2";
+import { useSelector } from "react-redux";
+import DonorItem from "./DonorItem";
+import "./GeneralDash.css";
+import { Charts, HH1, ImageLogo, Imgoo } from "../../style";
+import InvTransaction from "./InvTransaction";
+import { Pie, Doughnut, Bar } from "react-chartjs-2";
 
-// const GeneralDashBoard = () => {
-// 	const ideas = useSelector((state) => state.ideas.ideas);
-// 	const user = useSelector((state) => state.user.user);
-// 	const donorusers = useSelector((state) => state.donorUser.donorUser);
-// 	const ideaUsers = useSelector((state) => state.ideasUser.ideasUser);
+const GeneralDashBoard = () => {
+	const ideas = useSelector((state) => state.ideas.ideas);
+	const user = useSelector((state) => state.user.user);
+	const donorusers = useSelector((state) => state.donorUser.donorUser);
+	const ideaUsers = useSelector((state) => state.ideasUser.ideasUser);
+	const ideaDonation = donorusers.map((ideadon) => (
+		<DonorItem ideadon={ideadon} key={ideadon.donorId} />
+	));
+	const liveIdeas = ideas.filter((idea) => idea.status === true);
+	const successIdea = ideas.filter(
+		(idea) => idea.fundAmount === idea.recievedFund
+	);
+	const amounts = ideaUsers.map((e) => e.amount).reduce((a, b) => a + b);
+	const amountsDonation = donorusers
+		.map((a) => a.amount)
+		.reduce((a, b) => a + b);
 
-// 	const ideaDonation = donorusers.map((ideadon) => (
-// 		<DonorItem ideadon={ideadon} key={ideadon.donorId} />
-// 	));
+	const ideaInvetments = ideaUsers?.map((ideaivs) => (
+		<InvTransaction ideaivs={ideaivs} key={ideaivs.investorId} />
+	));
 
-// 	const ideaInvetments = ideaUsers.map((ideaivs) => (
-// 		<InvTransaction ideaivs={ideaivs} key={ideaivs.investorId} />
-// 	));
+	const totalTransactions = ideaDonation.length + ideaInvetments.length;
 
-// 	const state = {
-// 		labels: ["requested fund", "actual fund"],
-// 		datasets: [
-// 			{
-// 				label: "Rainfall",
-// 				backgroundColor: ["#C9DE00", "#2FDE00", "#00A6B4", "#6800B4"],
-// 				hoverBackgroundColor: [
-// 					"#501800",
-// 					"#4B5000",
-// 					"#175000",
-// 					"#003350",
-// 					"#35014F",
-// 				],
-// 				data: [userIdea.fundAmount, userIdea.recievedFund],
-// 			},
-// 		],
-// 	};
+	const state = {
+		labels: ["investment amount ", "donation amount"],
+		datasets: [
+			{
+				label: "Rainfall",
+				backgroundColor: ["#C9DE00", "#2FDE00", "#00A6B4", "#6800B4"],
+				hoverBackgroundColor: [
+					"#501800",
+					"#4B5000",
+					"#175000",
+					"#003350",
+					"#35014F",
+				],
+				data: [amounts, amountsDonation],
+			},
+		],
+	};
 
-// 	return (
-// 		<>
-// 			<div class="wrapper rounded">
-// 				<Charts>
-// 					<Pie
-// 						data={state}
-// 						options={{
-// 							title: {
-// 								display: true,
-// 								text: "Average Rainfall per month",
-// 								fontSize: 20,
-// 							},
-// 							legend: {
-// 								display: true,
-// 								position: "right",
-// 							},
-// 						}}
-// 					/>
+	const state1 = {
+		labels: ["total ideas", "success ideas"],
+		datasets: [
+			{
+				label: "Rainfall",
+				backgroundColor: ["#00A6B4", "#6800B4"],
+				hoverBackgroundColor: ["#175000", "#003350", "#35014F"],
+				data: [ideas.length, successIdea.length],
+			},
+		],
+	};
 
-// 					{/* <Doughnut
-// 						data={state}
-// 						options={{
-// 							title: {
-// 								display: true,
-// 								text: "Average Rainfall per month",
-// 								fontSize: 20,
-// 							},
-// 							legend: {
-// 								display: true,
-// 								position: "right",
-// 							},
-// 						}}
-// 					/> */}
-// 				</Charts>
-// 				<nav class="navbar navbar-expand-lg navbar-dark dark d-lg-flex align-items-lg-start">
-// 					{" "}
-// 					<a class="navbar-brand" href="#">
-// 						Transactions{" "}
-// 						<p class="text-muted pl-1">Welcome to your transactions</p>{" "}
-// 						<p class="text-muted pl-1">
-// 							Your requested fund is <b>{userIdea.fundAmount} JD</b>{" "}
-// 						</p>
-// 					</a>{" "}
-// 					<button
-// 						class="navbar-toggler"
-// 						type="button"
-// 						data-toggle="collapse"
-// 						data-target="#navbarNav"
-// 						aria-controls="navbarNav"
-// 						aria-expanded="false"
-// 						aria-label="Toggle navigation"
-// 					>
-// 						{" "}
-// 						<span class="navbar-toggler-icon"></span>{" "}
-// 					</button>
-// 					<div class="collapse navbar-collapse" id="navbarNav">
-// 						<ul class="navbar-nav ml-lg-auto"></ul>
-// 					</div>
-// 				</nav>
-// 				<div class="row mt-2 pt-2">
-// 					<div class="col-md-6" id="income">
-// 						<div class="d-flex justify-content-start align-items-center">
-// 							<Imgoo src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ski_trail_rating_symbol-green_circle.svg/600px-Ski_trail_rating_symbol-green_circle.svg.png" />{" "}
-// 							<p class="text mx-3">Recived fund </p>
-// 							<p class="text-white ml-4 money">{userIdea.recievedFund} JD</p>
-// 						</div>
-// 					</div>
-// 					<div class="col-md-6">
-// 						<div class="d-flex justify-content-md-end align-items-center">
-// 							<Imgoo src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/58674/red-circle-emoji-clipart-xl.png" />
-// 							<div class="text mx-3">needed fund</div>
-// 							<div class="text-white ml-4 money">{neededFund}JD</div>
-// 						</div>
-// 					</div>
-// 				</div>
-// 				<div class="d-flex justify-content-between align-items-center mt-3">
-// 					<ul class="nav nav-tabs w-75">
-// 						<li class="nav-item">
-// 							{" "}
-// 							<a class="nav-link active" href="#history">
-// 								Transactions
-// 							</a>{" "}
-// 						</li>
-// 					</ul>{" "}
-// 					<button class="btn btn-primary">
-// 						{" "}
-// 						<Imgoo src="https://www.freeiconspng.com/thumbs/stop-icon/stop-icon-21.png" />
-// 					</button>
-// 				</div>
-// 				<div class="table-responsive mt-3">
-// 					<table class="table table-dark table-borderless">
-// 						<thead>
-// 							<tr>
-// 								<th scope="col">Activity</th>
-// 								<th scope="col">type</th>
-// 								<th scope="col">Date</th>
-// 								<th scope="col" class="text-right">
-// 									Amount
-// 								</th>
-// 							</tr>
-// 						</thead>
-// 						<tbody>
-// 							{ideaDonation}
-// 							{ideaInvetments}
-// 						</tbody>
-// 					</table>
-// 				</div>
-// 				<div class="d-flex justify-content-between align-items-center results">
-// 					{" "}
-// 					<div class="pt-3">
-// 						<nav aria-label="Page navigation example">
-// 							<ul class="pagination">
-// 								<li class="page-item disabled">
-// 									{" "}
-// 									<a class="page-link" href="#" aria-label="Previous">
-// 										{" "}
-// 										<span aria-hidden="true">&lt;</span>{" "}
-// 									</a>{" "}
-// 								</li>
-// 								<li class="page-item">
-// 									{" "}
-// 									<a class="page-link" href="#" aria-label="Next">
-// 										{" "}
-// 										<span aria-hidden="true">&gt;</span>{" "}
-// 									</a>{" "}
-// 								</li>
-// 							</ul>
-// 						</nav>
-// 					</div>
-// 				</div>
-// 			</div>
-// 		</>
-// 	);
-// };
+	const state3 = {
+		labels: ["accepted ideas", "rejected ideas"],
+		datasets: [
+			{
+				label: "Rainfall",
+				backgroundColor: ["#00A6B4", "#6800B4"],
+				hoverBackgroundColor: ["#175000", "#003350", "#35014F"],
+				data: [ideas.length, ideas * 2],
+			},
+		],
+	};
 
-// export default GeneralDashBoard;
+	return (
+		<div class="grid-container">
+			<Charts>
+				<div>
+					<h1>LIVE IDEAS</h1>
+					<br />
+					<h1>{liveIdeas.length}</h1>
+				</div>
+			</Charts>
+			<Charts>
+				<div>
+					<h1> TRANSACTIONS</h1>
+					<br />
+					<h1>{totalTransactions} </h1>
+				</div>
+			</Charts>
+			<Charts>
+				<div>
+					<h1> OUR TARGET</h1>
+					<br />
+					<h1>
+						1000 <br />
+						success story
+					</h1>
+				</div>
+			</Charts>
+			<div>
+				<Charts>
+					<Pie
+						data={state}
+						options={{
+							title: {
+								display: true,
+								text: "Average Rainfall per month",
+								fontSize: 20,
+							},
+							legend: {
+								display: true,
+								position: "right",
+							},
+						}}
+					/>
+				</Charts>
+				<HH1>total investment = {amounts}</HH1>
+				<HH1>total donation = {amountsDonation}</HH1>
+			</div>
+			<div>
+				<Charts>
+					<Doughnut
+						data={state1}
+						options={{
+							title: {
+								display: true,
+								text: "Average Rainfall per month",
+								fontSize: 20,
+							},
+							legend: {
+								display: true,
+								position: "right",
+							},
+						}}
+					/>
+				</Charts>
+				<HH1>total ideas = {ideas.length}</HH1>
+				<HH1>success ideas = {successIdea.length}</HH1>
+			</div>
+			<div>
+				<Charts>
+					<Doughnut
+						data={state3}
+						options={{
+							title: {
+								display: true,
+								text: "Average Rainfall per month",
+								fontSize: 20,
+							},
+							legend: {
+								display: true,
+								position: "right",
+							},
+						}}
+					/>
+				</Charts>
+				<HH1>accepted ideas = {ideas}</HH1>
+				<HH1>rejected ideas = {ideas * 2}</HH1>
+			</div>
+			<div>
+				<Charts>
+					<Doughnut
+						data={state}
+						options={{
+							title: {
+								display: true,
+								text: "Average Rainfall per month",
+								fontSize: 20,
+							},
+							legend: {
+								display: true,
+								position: "right",
+							},
+						}}
+					/>
+				</Charts>
+			</div>
+
+			<div></div>
+		</div>
+	);
+};
+
+export default GeneralDashBoard;
