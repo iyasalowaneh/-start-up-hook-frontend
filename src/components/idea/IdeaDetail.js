@@ -16,7 +16,7 @@ import {
   ButtonDiv,
   ImageD,
   Abutton,
-  DivColor,
+  ImageP,
 } from "../../style";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { Email } from "@material-ui/icons";
@@ -39,7 +39,10 @@ const IdeaDetail = () => {
         <div class="row">
           <div class="col-3">
             <div class="profile-card-2">
-              <img src={ideaOwner.profilePicture} class="img img-responsive" />
+              <ImageP
+                src={ideaOwner.profilePicture}
+                class="img img-responsive"
+              />
               <div class="profile-name">
                 {ideaOwner.firstName} {ideaOwner.lastName}
               </div>
@@ -134,7 +137,7 @@ const IdeaDetail = () => {
                           </L>
                         )}
                         {idea.fundType === "consultation" && (
-                          <L to={`/chatLits/${idea.slug}`}>
+                          <L to={`/ideas/${idea.slug}/chat`}>
                             <ButtonC class="btn btn-success">
                               Consultation{" "}
                             </ButtonC>
@@ -178,7 +181,8 @@ const IdeaDetail = () => {
                 </div>
               </div>
               {idea.fundType === "investment" &&
-                idea.recievedFund === idea.fundAmount && (
+                idea.recievedFund === idea.fundAmount &&
+                idea.status === true && (
                   <Link to={`/agreementform/${idea.slug}`}>
                     <Abutton type="button" class="btn btn-outline-success">
                       Agreement
@@ -186,7 +190,8 @@ const IdeaDetail = () => {
                   </Link>
                 )}
               {idea.fundType === "donation" &&
-                idea.recievedFund === idea.fundAmount && (
+                idea.recievedFund === idea.fundAmount &&
+                idea.status === true && (
                   <Link to={`/withdraw/${idea.slug}`}>
                     <Abutton type="button" class="btn btn-outline-success">
                       Withdraw

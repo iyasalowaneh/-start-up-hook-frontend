@@ -52,10 +52,8 @@ export const FDiv = styled.div`
 `;
 
 export const Image = styled.img`
+  width: 100%;
   height: 600px;
-  padding-left: 50px;
-  padding-right: 50px;
-  border-radius: 90px;
 `;
 
 export const H2 = styled.h2`
@@ -403,25 +401,29 @@ export const MsgList2 = styled.div`
 `;
 
 export const FullDiv2 = styled.div`
-	width: 100%;
-	height: 100%;
-	margin-top: 10%;
+  width: 100%;
+  height: 100%;
+  margin-top: 10%;
 `;
 
 export const Wdiv = styled.div`
-	width: 90%;
-	margin-left: 90px;
+  width: 90%;
+  margin-left: 90px;
 `;
 
 export const Tabo = styled.table`
-	width: 80%;
-	margin-left: 180px;
-	margin-top: 80px;
+  width: 80%;
+  margin-left: 180px;
+  margin-top: 80px;
 `;
 
 export const Odiv = styled.div`
-	margin-top: 120px;
-	margin: 0;
-	overflow: hidden;
-	height: 100%;
+  margin-top: 120px;
+  margin: 0;
+  overflow: hidden;
+  height: 100%;
+`;
+export const ImageP = styled.img`
+  height: 400px;
+  width: 300px;
 `;

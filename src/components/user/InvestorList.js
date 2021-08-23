@@ -9,6 +9,7 @@ import "./Chat.css";
 import IdeaOwnerItem from "./IdeaOwnerItem";
 import InvestorItem from "./InvestorItem";
 import MessageList from "../Chat/MessageItem";
+import ConsultantItem from "./ConsultantItem";
 const InvestorList = ({ idea }) => {
   const ideas = useSelector((state) => state.ideas.ideas);
   const user = useSelector((state) => state.user.user);
@@ -26,7 +27,12 @@ const InvestorList = ({ idea }) => {
     .map((ideaOwner) => (
       <IdeaOwnerItem ideaOwner={ideaOwner} key={ideaOwner.id} />
     ));
-
+  const consultantList = users
+    .filter((user) => user.type === "consultant")
+    .map((consultant) => (
+      <ConsultantItem consultant={consultant} key={consultant.id} />
+    ));
+  console.log(consultantList);
   return (
     <>
       <img
@@ -35,9 +41,13 @@ const InvestorList = ({ idea }) => {
       />
       {user.type === "startup" && (
         <aside>
-          <ul>{invList}</ul>
+          <ul>
+            {invList}
+            {consultantList}
+          </ul>
         </aside>
       )}
+
       {user.type === "investor" && (
         <aside>
           <ul>{ownerList}</ul>
