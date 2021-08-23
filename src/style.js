@@ -392,3 +392,27 @@ export const FullDiv = styled.div`
 	height: 100%;
 	margin-top: 10%;
 `;
+
+export const FullDiv2 = styled.div`
+	width: 100%;
+	height: 100%;
+	margin-top: 10%;
+`;
+
+export const Wdiv = styled.div`
+	width: 90%;
+	margin-left: 90px;
+`;
+
+export const Tabo = styled.table`
+	width: 80%;
+	margin-left: 180px;
+	margin-top: 80px;
+`;
+
+export const Odiv = styled.div`
+	margin-top: 120px;
+	margin: 0;
+	overflow: hidden;
+	height: 100%;
+`;

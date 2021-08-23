@@ -1,4 +1,4 @@
-import { FullDiv } from "../../style";
+import { FullDiv, HH1, Odiv, Tabo, Wdiv } from "../../style";
 import "./Gdash.css";
 import { useSelector } from "react-redux";
 import DonorItem from "./DonorItem";
@@ -6,14 +6,17 @@ import "./DashBoard.css";
 import { Charts, ImageLogo, Imgoo } from "../../style";
 import InvTransaction from "./InvTransaction";
 import { Pie, Doughnut } from "react-chartjs-2";
+import AllInvTransaction from "./AllInvTransaction";
+import AllDonTransaction from "./AllDonTransaction";
 const Gdash = () => {
 	const ideas = useSelector((state) => state.ideas.ideas);
 	const user = useSelector((state) => state.user.user);
 	const donorusers = useSelector((state) => state.donorUser.donorUser);
 	const ideaUsers = useSelector((state) => state.ideasUser.ideasUser);
 	const ideaDonation = donorusers.map((ideadon) => (
-		<DonorItem ideadon={ideadon} key={ideadon.donorId} />
+		<AllDonTransaction ideadon={ideadon} key={ideadon.donorId} />
 	));
+	console.log(donorusers);
 	const liveIdeas = ideas.filter((idea) => idea.status === true);
 	const successIdea = ideas.filter(
 		(idea) => idea.fundAmount === idea.recievedFund
@@ -24,15 +27,46 @@ const Gdash = () => {
 		.reduce((a, b) => a + b, 0);
 
 	const ideaInvetments = ideaUsers?.map((ideaivs) => (
-		<InvTransaction ideaivs={ideaivs} key={ideaivs.investorId} />
+		<AllInvTransaction ideaivs={ideaivs} key={ideaivs.investorId} />
 	));
 
 	const totalTransactions = ideaDonation.length + ideaInvetments.length;
 
+	const state = {
+		labels: ["investment amount ", "donation amount"],
+		datasets: [
+			{
+				label: "Rainfall",
+				backgroundColor: ["#C9DE00", "#2FDE00", "#00A6B4", "#6800B4"],
+				hoverBackgroundColor: [
+					"#501800",
+					"#4B5000",
+					"#175000",
+					"#003350",
+					"#35014F",
+				],
+				data: [amounts, amountsDonation],
+			},
+		],
+	};
+
+	const state1 = {
+		labels: ["total ideas", "success ideas"],
+		datasets: [
+			{
+				label: "Rainfall",
+				backgroundColor: ["#00A6B4", "#6800B4"],
+				hoverBackgroundColor: ["#175000", "#003350", "#35014F"],
+				data: [ideas.length, successIdea.length],
+			},
+		],
+	};
+
 	return (
-		<div>
-			{/* </div><div class="sidebar"> */}
-			{/* <div class="logo-details">
+		<body scroll="off">
+			<Odiv>
+				{/* </div><div class="sidebar"> */}
+				{/* <div class="logo-details">
 					<i class="bx bxl-c-plus-plus"></i>
 					<span class="logo_name">CodingLab</span>
 				</div>
@@ -105,160 +139,134 @@ const Gdash = () => {
 					</li>
 				</ul>
 			</div> */}
-			<FullDiv class="home-section">
-				{/* <nav>
+				<FullDiv class="home-section">
+					{/* <nav>
 					<div class="sidebar-button">
 						<i class="bx bx-menu sidebarBtn"></i>
 						<span class="dashboard">Dashboard</span>
 					</div>
 				</nav> */}
 
-				<div class="home-content">
-					<div class="overview-boxes">
-						<div class="box">
-							<div class="right-side">
-								<div class="box-topic">Transactions </div>
-								<div class="number">{totalTransactions}</div>
-								<div class="indicator">
-									<i class="bx bx-up-arrow-alt"></i>
-									<span class="text">no limit</span>
+					<div class="home-content">
+						<div class="overview-boxes">
+							<div class="box">
+								<div class="right-side">
+									<div class="box-topic">Transactions </div>
+									<div class="number">{totalTransactions}</div>
+									<div class="indicator">
+										<i class="bx bx-up-arrow-alt"></i>
+										<span class="text">no limit</span>
+									</div>
 								</div>
+								<i class="bx bx-cart-alt cart"></i>
 							</div>
-							<i class="bx bx-cart-alt cart"></i>
-						</div>
-						<div class="box">
-							<div class="right-side">
-								<div class="box-topic">Total investment</div>
-								<div class="number">{amounts} JD</div>
-								<div class="indicator">
-									<i class="bx bx-up-arrow-alt"></i>
-									<span class="text">target is 500.000 JD</span>
+							<div class="box">
+								<div class="right-side">
+									<div class="box-topic">Total investment</div>
+									<div class="number">{amounts} JD</div>
+									<div class="indicator">
+										<i class="bx bx-up-arrow-alt"></i>
+										<span class="text">target is 500.000 JD</span>
+									</div>
 								</div>
+								<i class="bx bxs-cart-add cart two"></i>
 							</div>
-							<i class="bx bxs-cart-add cart two"></i>
-						</div>
-						<div class="box">
-							<div class="right-side">
-								<div class="box-topic">Total Donation</div>
-								<div class="number">{amountsDonation} JD</div>
-								<div class="indicator">
-									<i class="bx bx-up-arrow-alt"></i>
-									<span class="text">target is 100.000 JD</span>
+							<div class="box">
+								<div class="right-side">
+									<div class="box-topic">Total Donation</div>
+									<div class="number">{amountsDonation} JD</div>
+									<div class="indicator">
+										<i class="bx bx-up-arrow-alt"></i>
+										<span class="text">target is 100.000 JD</span>
+									</div>
 								</div>
+								<i class="bx bx-cart cart three"></i>
 							</div>
-							<i class="bx bx-cart cart three"></i>
-						</div>
-						<div class="box">
-							<div class="right-side">
-								<div class="box-topic">Success story</div>
-								<div class="number">{successIdea.length}</div>
-								<div class="indicator">
-									<i class="bx bx-down-arrow-alt down"></i>
-									<span class="text">target is 1000 JD</span>
+							<div class="box">
+								<div class="right-side">
+									<div class="box-topic">Success story</div>
+									<div class="number">{successIdea.length}</div>
+									<div class="indicator">
+										<i class="bx bx-down-arrow-alt down"></i>
+										<span class="text">target is 1000 JD</span>
+									</div>
 								</div>
+								<i class="bx bxs-cart-download cart four"></i>
 							</div>
-							<i class="bx bxs-cart-download cart four"></i>
 						</div>
-					</div>
+						<div>
+							<Wdiv>
+								{" "}
+								<h3> Investment Transactions</h3>
+								<table>
+									<tr>
+										<th>Type</th>
+										<th>Time</th>
+										<th>Amount</th>
+									</tr>
+									{ideaInvetments}
+								</table>
+							</Wdiv>
+							<Wdiv>
+								<h3> Donation Transactions</h3>
 
-					<div class="sales-boxes">
-						<div class="recent-sales box">
-							<div class="title">Recent Transactions</div>
-							<div class="sales-details">
-								<ul class="details">
-									<li class="topic">Date</li>
-									<li>
-										<a href="#">02 Jan 2021</a>
-									</li>
-								</ul>
-								<ul class="details">
-									<li class="topic">Customer</li>
-									<li>
-										<a href="#">Alex Doe</a>
-									</li>
-								</ul>
-								<ul class="details">
-									<li class="topic">Sales</li>
-									<li>
-										<a href="#">Delivered</a>
-									</li>
-								</ul>
-								<ul class="details">
-									<li class="topic">Total</li>
-									<li>
-										<a href="#">$204.98</a>
-									</li>
-								</ul>
-							</div>
-							<div class="button">
-								<a href="#">See All</a>
-							</div>
-						</div>
-						<div class="top-sales box">
-							<div class="title">Top Seling Product</div>
-							<ul class="top-sales-details">
-								<li>
-									<a href="#">
-										<img src="images/sunglasses.jpg" alt="" />
-										<span class="product">Vuitton Sunglasses</span>
-									</a>
-									<span class="price">$1107</span>
-								</li>
-								<li>
-									<a href="#">
-										<img src="images/jeans.jpg" alt="" />
-										<span class="product">Hourglass Jeans </span>
-									</a>
-									<span class="price">$1567</span>
-								</li>
-								<li>
-									<a href="#">
-										<img src="images/nike.jpg" alt="" />
-										<span class="product">Nike Sport Shoe</span>
-									</a>
-									<span class="price">$1234</span>
-								</li>
-								<li>
-									<a href="#">
-										<img src="images/scarves.jpg" alt="" />
-										<span class="product">Hermes Silk Scarves.</span>
-									</a>
-									<span class="price">$2312</span>
-								</li>
-								<li>
-									<a href="#">
-										<img src="images/blueBag.jpg" alt="" />
-										<span class="product">Succi Ladies Bag</span>
-									</a>
-									<span class="price">$1456</span>
-								</li>
-								<li>
-									<a href="#">
-										<img src="images/bag.jpg" alt="" />
-										<span class="product">Gucci Womens's Bags</span>
-									</a>
-									<span class="price">$2345</span>
-									<li>
-										<a href="#">
-											<img src="images/addidas.jpg" alt="" />
-											<span class="product">Addidas Running Shoe</span>
-										</a>
-										<span class="price">$2345</span>
-									</li>
-									<li>
-										<a href="#">
-											<img src="images/shirt.jpg" alt="" />
-											<span class="product">Bilack Wear's Shirt</span>
-										</a>
-										<span class="price">$1245</span>
-									</li>
-								</li>
-							</ul>
+								<table>
+									<tr>
+										<th>Type</th>
+										<th>Time</th>
+										<th>Amount</th>
+									</tr>
+									{ideaDonation}
+								</table>
+							</Wdiv>
 						</div>
 					</div>
-				</div>
-			</FullDiv>
-		</div>
+					<div>
+						<Tabo>
+							<tr></tr>
+							<tr>
+								<td>
+									<Charts>
+										<Pie
+											data={state}
+											options={{
+												title: {
+													display: true,
+													text: "Average Rainfall per month",
+													fontSize: 20,
+												},
+												legend: {
+													display: true,
+													position: "right",
+												},
+											}}
+										/>
+									</Charts>
+								</td>
+								<td>
+									<Charts>
+										<Doughnut
+											data={state1}
+											options={{
+												title: {
+													display: true,
+													text: "Average Rainfall per month",
+													fontSize: 20,
+												},
+												legend: {
+													display: true,
+													position: "right",
+												},
+											}}
+										/>
+									</Charts>
+								</td>
+							</tr>
+						</Tabo>
+					</div>
+				</FullDiv>
+			</Odiv>
+		</body>
 	);
 };
 export default Gdash;

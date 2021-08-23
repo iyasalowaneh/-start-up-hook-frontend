@@ -20,5 +20,4 @@ const DonorItem = ({ ideadon }) => {
 		</>
 	);
 };
-
 export default DonorItem;

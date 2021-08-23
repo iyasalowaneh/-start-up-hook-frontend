@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import DonorItem from "./DonorItem";
 import "./DashBoard.css";
-import { Charts, ImageLogo, Imgoo } from "../../style";
+import { Charts, FullDiv, HH1, ImageLogo, Imgoo } from "../../style";
 import InvTransaction from "./InvTransaction";
 import { Pie, Doughnut } from "react-chartjs-2";
 
@@ -76,7 +76,7 @@ const DashBoard = () => {
 						}}
 					/> */}
 				</Charts>
-				<nav class="navbar navbar-expand-lg navbar-dark dark d-lg-flex align-items-lg-start">
+				<div class="navbar navbar-expand-lg navbar-dark dark d-lg-flex align-items-lg-start">
 					{" "}
 					<a class="navbar-brand" href="#">
 						Transactions{" "}
@@ -100,7 +100,7 @@ const DashBoard = () => {
 					<div class="collapse navbar-collapse" id="navbarNav">
 						<ul class="navbar-nav ml-lg-auto"></ul>
 					</div>
-				</nav>
+				</div>
 				<div class="row mt-2 pt-2">
 					<div class="col-md-6" id="income">
 						<div class="d-flex justify-content-start align-items-center">
@@ -128,7 +128,7 @@ const DashBoard = () => {
 					</ul>{" "}
 					<button class="btn btn-primary">
 						{" "}
-						<Imgoo src="https://www.freeiconspng.com/thumbs/stop-icon/stop-icon-21.png" />
+						<b> I DO NOT WANT TO COMPLETE</b>{" "}
 					</button>
 				</div>
 				<div class="table-responsive mt-3">
@@ -151,26 +151,6 @@ const DashBoard = () => {
 				</div>
 				<div class="d-flex justify-content-between align-items-center results">
 					{" "}
-					<div class="pt-3">
-						<nav aria-label="Page navigation example">
-							<ul class="pagination">
-								<li class="page-item disabled">
-									{" "}
-									<a class="page-link" href="#" aria-label="Previous">
-										{" "}
-										<span aria-hidden="true">&lt;</span>{" "}
-									</a>{" "}
-								</li>
-								<li class="page-item">
-									{" "}
-									<a class="page-link" href="#" aria-label="Next">
-										{" "}
-										<span aria-hidden="true">&gt;</span>{" "}
-									</a>{" "}
-								</li>
-							</ul>
-						</nav>
-					</div>
 				</div>
 			</div>
 		</>

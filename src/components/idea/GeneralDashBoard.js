@@ -10,6 +10,7 @@ const GeneralDashBoard = () => {
 	const user = useSelector((state) => state.user.user);
 	const donorusers = useSelector((state) => state.donorUser.donorUser);
 	const ideaUsers = useSelector((state) => state.ideasUser.ideasUser);
+	console.log(donorusers);
 	const ideaDonation = donorusers.map((ideadon) => (
 		<DonorItem ideadon={ideadon} key={ideadon.donorId} />
 	));
@@ -17,10 +18,10 @@ const GeneralDashBoard = () => {
 	const successIdea = ideas.filter(
 		(idea) => idea.fundAmount === idea.recievedFund
 	);
-	const amounts = ideaUsers.map((e) => e.amount).reduce((a, b) => a + b);
+	const amounts = ideaUsers.map((e) => e.amount).reduce((a, b) => a + b, 0);
 	const amountsDonation = donorusers
 		.map((a) => a.amount)
-		.reduce((a, b) => a + b);
+		.reduce((a, b) => a + b, 0);
 
 	const ideaInvetments = ideaUsers?.map((ideaivs) => (
 		<InvTransaction ideaivs={ideaivs} key={ideaivs.investorId} />
@@ -65,7 +66,7 @@ const GeneralDashBoard = () => {
 				label: "Rainfall",
 				backgroundColor: ["#00A6B4", "#6800B4"],
 				hoverBackgroundColor: ["#175000", "#003350", "#35014F"],
-				data: [ideas.length, ideas * 2],
+				data: [ideas.length, ideas.length],
 			},
 		],
 	};
