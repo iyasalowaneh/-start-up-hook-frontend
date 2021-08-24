@@ -1,13 +1,14 @@
-import { FullDiv, HH1, Odiv, Tabo, Wdiv } from "../../style";
+import { Daiagram, FullDiv, HH1, Odiv, Tabo, Wdiv } from "../../style";
 import "./Gdash.css";
 import { useSelector } from "react-redux";
 import DonorItem from "./DonorItem";
 import "./DashBoard.css";
 import { Charts, ImageLogo, Imgoo } from "../../style";
 import InvTransaction from "./InvTransaction";
-import { Pie, Doughnut } from "react-chartjs-2";
+import { Pie, Doughnut, Bar } from "react-chartjs-2";
 import AllInvTransaction from "./AllInvTransaction";
 import AllDonTransaction from "./AllDonTransaction";
+
 const Gdash = () => {
 	const ideas = useSelector((state) => state.ideas.ideas);
 	const user = useSelector((state) => state.user.user);
@@ -122,6 +123,7 @@ const Gdash = () => {
 								<i class="bx bxs-cart-download cart four"></i>
 							</div>
 						</div>
+
 						<Tabo>
 							<tr></tr>
 							<td>

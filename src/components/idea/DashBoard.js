@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import DonorItem from "./DonorItem";
 import "./DashBoard.css";
-import { Charts, FullDiv, HH1, ImageLogo, Imgoo } from "../../style";
+import { Charts, Daiagram, FullDiv, HH1, ImageLogo, Imgoo } from "../../style";
 import InvTransaction from "./InvTransaction";
-import { Pie, Doughnut } from "react-chartjs-2";
+import { Pie, Doughnut, Line } from "react-chartjs-2";
 
 const DashBoard = () => {
 	const ideas = useSelector((state) => state.ideas.ideas);
@@ -41,6 +41,20 @@ const DashBoard = () => {
 			},
 		],
 	};
+	const state5 = {
+		labels: ["January", "February", "March", "April", "May"],
+		datasets: [
+			{
+				label: "transactions",
+				fill: false,
+				lineTension: 0.5,
+				backgroundColor: "rgba(75,192,192,1)",
+				borderColor: "rgba(0,0,0,1)",
+				borderWidth: 2,
+				data: [65, 59, 80, 81, 56],
+			},
+		],
+	};
 
 	return (
 		<>
@@ -60,21 +74,6 @@ const DashBoard = () => {
 							},
 						}}
 					/>
-
-					{/* <Doughnut
-						data={state}
-						options={{
-							title: {
-								display: true,
-								text: "Average Rainfall per month",
-								fontSize: 20,
-							},
-							legend: {
-								display: true,
-								position: "right",
-							},
-						}}
-					/> */}
 				</Charts>
 				<div class="navbar navbar-expand-lg navbar-dark dark d-lg-flex align-items-lg-start">
 					{" "}
@@ -153,6 +152,23 @@ const DashBoard = () => {
 					{" "}
 				</div>
 			</div>
+
+			<Daiagram>
+				<Line
+					data={state5}
+					options={{
+						title: {
+							display: true,
+							text: "Average Rainfall per month",
+							fontSize: 20,
+						},
+						legend: {
+							display: true,
+							position: "right",
+						},
+					}}
+				/>
+			</Daiagram>
 		</>
 	);
 };

@@ -229,17 +229,16 @@ export const ButtonDiv = styled.div`
 	margin-top: 10px;
 `;
 export const Input = styled.input`
-
-  margin-left: 15px;
-  border-radius: 4px;
-  width: 210px;
-  padding-left: 12px;
+	margin-left: 15px;
+	border-radius: 4px;
+	width: 210px;
+	padding-left: 12px;
 `;
 export const ButtonS = styled.button`
-  background-color: unset;
-  color: #ffff;
-  width: 114px;
-  margin-top: 5px; ;
+	background-color: unset;
+	color: #ffff;
+	width: 114px;
+	margin-top: 5px; ;
 `;
 
 export const CounterBox = styled.h1`
@@ -389,7 +388,7 @@ export const HH1 = styled.h1`
 export const FullDiv = styled.div`
 	width: 100%;
 	height: 100%;
-	margin-top: 10%;
+	margin-top: 3%;
 `;
 export const MsgList = styled.div`
 	align-items: center;
@@ -421,7 +420,7 @@ export const Tabo = styled.table`
 `;
 
 export const Odiv = styled.div`
-	margin-top: 120px;
+	/* margin-top: 120px; */
 	margin: 0;
 	overflow: hidden;
 	height: 100%;
@@ -431,5 +430,10 @@ export const ImageP = styled.img`
 	width: 300px;
 `;
 export const DivList = styled.div`
-  margin-top: 35px;
+	margin-top: 35px;
+`;
+export const Daiagram = styled.div`
+	width: 50%;
+	height: 50px;
+	margin-left: 420px;
 `;
