@@ -93,7 +93,7 @@ const InvestForm = () => {
           <br />
           <input
             type="number"
-            placeholder="Investment in JOD"
+            placeholder="Investment in USD"
             name="amount"
             onChange={handleChange}
             required

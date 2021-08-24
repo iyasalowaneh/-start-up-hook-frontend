@@ -25,7 +25,7 @@ const NavBar = () => {
             Ideas
           </Link>
           <Link to="/gdash" class="navbar-brand">
-            Statics
+            Statistics
           </Link>
 
           {!user ||
