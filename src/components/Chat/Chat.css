@@ -232,7 +232,7 @@ main footer a {
 .msg {
   position: absolute;
   left: 45%;
-  top: 18%;
+  top: 19.3%;
   height: 500px;
   background-color: white;
 }
@@ -248,7 +248,7 @@ aside ul::-webkit-scrollbar {
 .image {
   position: absolute;
   left: 45%;
-  top: 18%;
+  top: 19.3%;
   height: 500px;
   width: 490px;
 }

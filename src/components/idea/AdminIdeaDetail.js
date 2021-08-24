@@ -6,6 +6,7 @@ import { updateIdea } from "../../store/actions/ideaAction";
 //Styling
 import { DetailDiv, L, Button, ButtonP, H4, P1, L2 } from "../../style";
 import { BsFillChatDotsFill } from "react-icons/bs";
+import moment from "moment";
 
 const AdminIdeaDetail = () => {
 	const ideas = useSelector((state) => state.ideas.ideas);
@@ -117,20 +118,21 @@ const AdminIdeaDetail = () => {
 											</div>
 										)}
 
-										<p class="card-text">
-											<small class="text-muted">
-												Idea created at {idea.createdAt.slice(0, 10)} by{" "}
-												{ideaOwner?.firstName} {ideaOwner?.lastName}
-											</small>
-										</p>
-									</div>
-								</div>
-							</div>
-						</DetailDiv>
-					</div>
-				</div>
-			</div>
-		</>
-	);
+
+                    <p class="card-text">
+                      <small class="text-muted">
+                        Idea created at {moment(idea.createdAt).format("ll")} by{" "}
+                        {ideaOwner?.firstName} {ideaOwner?.lastName}
+                      </small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </DetailDiv>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 export default AdminIdeaDetail;

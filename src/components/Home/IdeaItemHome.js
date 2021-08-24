@@ -4,11 +4,14 @@ import { useSelector } from "react-redux";
 //styling
 import { IdeaDiv, ButtonCard, L, ListImage, Divv } from "../../style";
 import DotLoader from "react-spinners/DotLoader";
+import moment from "moment";
+
 const IdeaItemHome = (props) => {
-	const idea = props.idea;
+  const idea = props.idea;
 
-	const loading = useSelector((state) => state.ideas.loading);
+  const loading = useSelector((state) => state.ideas.loading);
 
+<<<<<<< upgrade
 	const ideaProgress = (idea?.recievedFund / idea?.fundAmount) * 100;
 	const users = useSelector((state) => state.users.users);
 	let user = users.find((user) => user.id === idea?.ownerId);
@@ -51,26 +54,29 @@ const IdeaItemHome = (props) => {
 									</div>
 								</div>
 							</div>
+=======
+ 
+>>>>>>> main
 
-							<div class="col-xs-4">
-								<div class="profile-overview">
-									<small class="text-muted">
-										Idea created at {idea.createdAt.slice(0, 10)} by{" "}
-										<b>
-											{user?.firstName} {user?.lastName}
-										</b>
-									</small>
-									<L to={`/ideas/${idea.slug}`}>
-										<ButtonCard>More detials about my idea</ButtonCard>
-									</L>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</>
-	);
+              <div class="col-xs-4">
+                <div class="profile-overview">
+                  <small class="text-muted">
+                    Idea created at {moment(idea?.createdAt).format("ll")} by{" "}
+                    <b>
+                      {user?.firstName} {user?.lastName}
+                    </b>
+                  </small>
+                  <L to={`/ideas/${idea?.slug}`}>
+                    <ButtonCard>More detials about my idea</ButtonCard>
+                  </L>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default IdeaItemHome;

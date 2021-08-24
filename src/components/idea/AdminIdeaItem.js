@@ -2,13 +2,14 @@ import { useSelector } from "react-redux";
 
 //styling
 import { ButtonCard, ListImage, L } from "../../style";
+import moment from "moment";
 
 const AdminIdeaItem = (props) => {
-	const idea = props.idea;
+  const idea = props.idea;
 
-	const ideaProgress = (idea.recievedFund / idea.fundAmount) * 100;
-	const users = useSelector((state) => state.users.users);
-	let user = users.find((user) => user.id === idea.ownerId);
+  const ideaProgress = (idea.recievedFund / idea.fundAmount) * 100;
+  const users = useSelector((state) => state.users.users);
+  let user = users.find((user) => user.id === idea.ownerId);
 
 	return (
 		<>
@@ -49,25 +50,25 @@ const AdminIdeaItem = (props) => {
 								</div>
 							</div>
 
-							<div class="col-xs-4">
-								<div class="profile-overview">
-									<small class="text-muted">
-										Idea created at {idea.createdAt.slice(0, 10)} by{" "}
-										<b>
-											{user?.firstName} {user?.lastName}
-										</b>
-									</small>
-									<L to={`/adminlist/${idea.slug}`}>
-										<ButtonCard>More detials about my idea</ButtonCard>
-									</L>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</>
-	);
+              <div class="col-xs-4">
+                <div class="profile-overview">
+                  <small class="text-muted">
+                    Idea created at {moment(idea.createdAt).format("ll")} by{" "}
+                    <b>
+                      {user?.firstName} {user?.lastName}
+                    </b>
+                  </small>
+                  <L to={`/adminlist/${idea.slug}`}>
+                    <ButtonCard>More detials about my idea</ButtonCard>
+                  </L>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default AdminIdeaItem;

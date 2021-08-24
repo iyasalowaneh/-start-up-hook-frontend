@@ -229,16 +229,17 @@ export const ButtonDiv = styled.div`
 	margin-top: 10px;
 `;
 export const Input = styled.input`
-	margin-left: 15px;
-	border-radius: 4px;
-	width: 210px;
+
+  margin-left: 15px;
+  border-radius: 4px;
+  width: 210px;
+  padding-left: 12px;
 `;
 export const ButtonS = styled.button`
-	background-color: unset;
-	color: #ffff;
-	width: 114px;
-	margin-top: 5px;
-	margin-left: -20px;
+  background-color: unset;
+  color: #ffff;
+  width: 114px;
+  margin-top: 5px; ;
 `;
 
 export const CounterBox = styled.h1`
@@ -428,4 +429,7 @@ export const Odiv = styled.div`
 export const ImageP = styled.img`
 	height: 400px;
 	width: 300px;
+`;
+export const DivList = styled.div`
+  margin-top: 35px;
 `;

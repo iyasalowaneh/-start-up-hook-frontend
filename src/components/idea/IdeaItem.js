@@ -1,6 +1,8 @@
 //styling
 import { useSelector } from "react-redux";
 import { ButtonCard, L, ListImage } from "../../style";
+import moment from "moment";
+
 const IdeaItem = (props) => {
 	const idea = props.idea;
 
@@ -50,7 +52,7 @@ const IdeaItem = (props) => {
 							<div class="col-xs-4">
 								<div class="profile-overview">
 									<small class="text-muted">
-										Idea created at {idea.createdAt.slice(0, 10)} by{" "}
+                    Idea created at {moment(idea.createdAt).format("ll")} by{" "}
 										<b>
 											{user?.firstName} {user?.lastName}
 										</b>
@@ -66,6 +68,7 @@ const IdeaItem = (props) => {
 			</div>
 		</>
 	);
+
 };
 
 export default IdeaItem;
