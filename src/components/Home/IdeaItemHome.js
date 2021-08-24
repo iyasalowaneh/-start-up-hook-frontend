@@ -33,7 +33,7 @@ const IdeaItemHome = (props) => {
 								alt="money"
 							/>
 							<address>
-								{idea.recievedFund}$ of {idea.fundAmount}${" "}
+								{idea.recievedFund}JD of {idea.fundAmount}JD{" "}
 							</address>
 						</div>
 						<div class="row">
