@@ -10,7 +10,7 @@ const IdeaItem = (props) => {
 
   return (
     <>
-      <div class="col-sm-4">
+      <div style={{ marginTop: "40px" }} class="col-sm-4">
         <div class="profile-card-4 text-center">
           <ListImage src={idea.ideaPicture} class="img img-responsive" />
           <div class="profile-content">

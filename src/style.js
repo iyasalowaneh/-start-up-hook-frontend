@@ -237,8 +237,7 @@ export const ButtonS = styled.button`
   background-color: unset;
   color: #ffff;
   width: 114px;
-  margin-top: 5px;
-  margin-left: -20px;
+  margin-top: 5px; ;
 `;
 
 export const CounterBox = styled.h1`
@@ -426,4 +425,7 @@ export const Odiv = styled.div`
 export const ImageP = styled.img`
   height: 400px;
   width: 300px;
+`;
+export const DivList = styled.div`
+  margin-top: 35px;
 `;
