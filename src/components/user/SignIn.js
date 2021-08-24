@@ -21,7 +21,9 @@ const Signin = () => {
     event.preventDefault();
     dispatch(signin(user, history));
   };
-
+  const handelSU = () => {
+    history.push("/signup");
+  };
   return (
     <form onSubmit={handleSubmit}>
       <Input
@@ -39,9 +41,9 @@ const Signin = () => {
       />
 
       <ButtonS type="submit">Sign In</ButtonS>
-      <Link to="/signup">
-        <ButtonS type="button">Sign Up</ButtonS>
-      </Link>
+      <ButtonS onClick={handelSU} type="button">
+        Sign Up
+      </ButtonS>
     </form>
   );
 };
