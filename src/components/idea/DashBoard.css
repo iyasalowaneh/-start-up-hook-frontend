@@ -6,10 +6,9 @@
   box-sizing: border-box;
 }
 
-/* bodys {
-	background-color: #777;
-	font-family: "Poppins", sans-serif;
-} */
+bodys {
+	min-height: 100%;
+}
 
 .wrapper {
   background-color: #222;

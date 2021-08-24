@@ -1,0 +1,54 @@
+/* body {
+	background-color: #000;
+} */
+
+/* .main {
+	width: 740px;
+	background-color: #000;
+} */
+
+.one {
+	background-color: rgb(97, 119, 161);
+	border-radius: 5px;
+}
+
+.dotdot {
+	font-size: 13px !important;
+	font-weight: lighter !important;
+	color: #76787b;
+}
+
+.name {
+	font-size: 10px;
+	color: #15063d;
+	font-weight: 600;
+}
+
+.mail {
+	font-size: 10px;
+	font-weight: 1000;
+	color: #000000;
+}
+
+.total {
+	font-size: 8px;
+	font-weight: 500;
+	color: #eff0f1;
+}
+
+.money {
+	font-size: 18px;
+	font-weight: 600;
+	color: #d3d5eb;
+}
+
+.details {
+	font-size: 8px;
+	font-weight: 500;
+	color: #0606b5;
+}
+
+.right {
+	font-size: 12px;
+	color: #0606b5;
+}

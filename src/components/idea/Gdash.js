@@ -65,88 +65,7 @@ const Gdash = () => {
 	return (
 		<body scroll="off">
 			<Odiv>
-				{/* </div><div class="sidebar"> */}
-				{/* <div class="logo-details">
-					<i class="bx bxl-c-plus-plus"></i>
-					<span class="logo_name">CodingLab</span>
-				</div>
-				<ul class="nav-links">
-					<li>
-						<a href="#" class="active">
-							<i class="bx bx-grid-alt"></i>
-							<span class="links_name">Dashboard</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="bx bx-box"></i>
-							<span class="links_name">Product</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="bx bx-list-ul"></i>
-							<span class="links_name">Order list</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="bx bx-pie-chart-alt-2"></i>
-							<span class="links_name">Analytics</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="bx bx-coin-stack"></i>
-							<span class="links_name">Stock</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="bx bx-book-alt"></i>
-							<span class="links_name">Total order</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="bx bx-user"></i>
-							<span class="links_name">Team</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="bx bx-message"></i>
-							<span class="links_name">Messages</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="bx bx-heart"></i>
-							<span class="links_name">Favrorites</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="bx bx-cog"></i>
-							<span class="links_name">Setting</span>
-						</a>
-					</li>
-					<li class="log_out">
-						<a href="#">
-							<i class="bx bx-log-out"></i>
-							<span class="links_name">Log out</span>
-						</a>
-					</li>
-				</ul>
-			</div> */}
 				<FullDiv class="home-section">
-					{/* <nav>
-					<div class="sidebar-button">
-						<i class="bx bx-menu sidebarBtn"></i>
-						<span class="dashboard">Dashboard</span>
-					</div>
-				</nav> */}
-
 					<div class="home-content">
 						<div class="overview-boxes">
 							<div class="box">
@@ -154,7 +73,10 @@ const Gdash = () => {
 									<div class="box-topic">Transactions </div>
 									<div class="number">{totalTransactions}</div>
 									<div class="indicator">
-										<i class="bx bx-up-arrow-alt"></i>
+										<i
+											class="bx bx-up-arrow-alt"
+											style={{ backgroundColor: "greenyellow" }}
+										></i>
 										<span class="text">no limit</span>
 									</div>
 								</div>
@@ -176,7 +98,10 @@ const Gdash = () => {
 									<div class="box-topic">Total Donation</div>
 									<div class="number">{amountsDonation} JD</div>
 									<div class="indicator">
-										<i class="bx bx-up-arrow-alt"></i>
+										<i
+											class="bx bx-up-arrow-alt"
+											style={{ backgroundColor: "blueviolet" }}
+										></i>
 										<span class="text">target is 100.000 JD</span>
 									</div>
 								</div>
@@ -187,13 +112,55 @@ const Gdash = () => {
 									<div class="box-topic">Success story</div>
 									<div class="number">{successIdea.length}</div>
 									<div class="indicator">
-										<i class="bx bx-down-arrow-alt down"></i>
+										<i
+											class="bx bx-down-arrow-alt down"
+											style={{ backgroundColor: "turquoise" }}
+										></i>
 										<span class="text">target is 1000 JD</span>
 									</div>
 								</div>
 								<i class="bx bxs-cart-download cart four"></i>
 							</div>
 						</div>
+						<Tabo>
+							<tr></tr>
+							<td>
+								<Charts>
+									<Pie
+										data={state}
+										options={{
+											title: {
+												display: true,
+												text: "Average Rainfall per month",
+												fontSize: 20,
+											},
+											legend: {
+												display: true,
+												position: "right",
+											},
+										}}
+									/>
+								</Charts>
+							</td>
+							<td>
+								<Charts>
+									<Doughnut
+										data={state1}
+										options={{
+											title: {
+												display: true,
+												text: "Average Rainfall per month",
+												fontSize: 20,
+											},
+											legend: {
+												display: true,
+												position: "right",
+											},
+										}}
+									/>
+								</Charts>
+							</td>
+						</Tabo>
 						<div>
 							<Wdiv>
 								{" "}
@@ -221,49 +188,7 @@ const Gdash = () => {
 							</Wdiv>
 						</div>
 					</div>
-					<div>
-						<Tabo>
-							<tr></tr>
-							<tr>
-								<td>
-									<Charts>
-										<Pie
-											data={state}
-											options={{
-												title: {
-													display: true,
-													text: "Average Rainfall per month",
-													fontSize: 20,
-												},
-												legend: {
-													display: true,
-													position: "right",
-												},
-											}}
-										/>
-									</Charts>
-								</td>
-								<td>
-									<Charts>
-										<Doughnut
-											data={state1}
-											options={{
-												title: {
-													display: true,
-													text: "Average Rainfall per month",
-													fontSize: 20,
-												},
-												legend: {
-													display: true,
-													position: "right",
-												},
-											}}
-										/>
-									</Charts>
-								</td>
-							</tr>
-						</Tabo>
-					</div>
+					<div></div>
 				</FullDiv>
 			</Odiv>
 		</body>

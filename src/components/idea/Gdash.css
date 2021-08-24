@@ -230,7 +230,7 @@ nav .profile-details i {
 	font-size: 32px;
 	height: 50px;
 	width: 50px;
-	background: #cce5ff;
+	background: greenyellow;
 	line-height: 50px;
 	text-align: center;
 	color: #66b0ff;
@@ -243,11 +243,11 @@ nav .profile-details i {
 }
 .home-content .box .cart.three {
 	color: #ffc233;
-	background: #ffe8b3;
+	background: blueviolet;
 }
 .home-content .box .cart.four {
 	color: #e05260;
-	background: #f7d4d7;
+	background: turquoise;
 }
 .home-content .total-order {
 	font-size: 20px;
