@@ -25,88 +25,88 @@ import GeneralDashBoard from "./Idea/GeneralDashBoard";
 import Gdash from "./Idea/Gdash";
 import ChatRoom from "./Both/ChatRoom";
 function Routes() {
-  return (
-    <Switch>
-      <Route path="/ideas/:ideaSlug/chat/:ideaOwnerSlug?">
-        <ChatRoom />
-      </Route>
+	return (
+		<Switch>
+			<Route path="/ideas/:ideaSlug/chat/:ideaOwnerSlug?">
+				<ChatRoom />
+			</Route>
 
-      <Route path="/investment/:ideaSlug">
-        <InvestForm />
-      </Route>
+			<Route path="/investment/:ideaSlug">
+				<InvestForm />
+			</Route>
 
-      <Route path="/donation/:ideaSlug">
-        <DonatForm />
-      </Route>
-      <Route path="/ideas/:ideaSlug">
-        <IdeaDetail />
-      </Route>
+			<Route path="/donation/:ideaSlug">
+				<DonatForm />
+			</Route>
+			<Route path="/ideas/:ideaSlug">
+				<IdeaDetail />
+			</Route>
 
-      <Route path="/chatLits/:ideaSlug">
-        <InvestorList />
-      </Route>
-      <Route path="/ThankYouPage">
-        <ThankYouPage />
-      </Route>
-      <Route path="/thankyou">
-        <DonationThankYouPage />
-      </Route>
+			<Route path="/chatLits/:ideaSlug">
+				<InvestorList />
+			</Route>
+			<Route path="/ThankYouPage">
+				<ThankYouPage />
+			</Route>
+			<Route path="/thankyou">
+				<DonationThankYouPage />
+			</Route>
 
-      <Route path="/checkout">
-        <Payment />
-      </Route>
+			<Route path="/checkout">
+				<Payment />
+			</Route>
 
-      <Route path="/gdash">
-        <Gdash />
-      </Route>
-      <Route path="/payment">
-        <PaymentDonate />
-      </Route>
-      <Route path="/agreementform/:ideaSlug">
-        <AgreementForm />
-      </Route>
-      <Route path="/withdraw/:ideaSlug">
-        <WithdrawForm />
-      </Route>
+			<Route path="/statistics">
+				<Gdash />
+			</Route>
+			<Route path="/payment">
+				<PaymentDonate />
+			</Route>
+			<Route path="/agreementform/:ideaSlug">
+				<AgreementForm />
+			</Route>
+			<Route path="/withdraw/:ideaSlug">
+				<WithdrawForm />
+			</Route>
 
-      <Route path="/adminlist/:ideaSlug">
-        <AdminIdeaDetail />
-      </Route>
-      <Route path="/adminlist">
-        <AdminIdeaList />
-      </Route>
-      <Route path="/ideas">
-        <IdeaList />
-      </Route>
+			<Route path="/adminlist/:ideaSlug">
+				<AdminIdeaDetail />
+			</Route>
+			<Route path="/adminlist">
+				<AdminIdeaList />
+			</Route>
+			<Route path="/ideas">
+				<IdeaList />
+			</Route>
 
-      <Route path="/DashBoard">
-        <DashBoard />
-      </Route>
+			<Route path="/DashBoard">
+				<DashBoard />
+			</Route>
 
-      <Route path="/GeneralDashBoard">
-        <GeneralDashBoard />
-      </Route>
+			<Route path="/GeneralDashBoard">
+				<GeneralDashBoard />
+			</Route>
 
-      <Route path="/createIdea">
-        <CreateIdea />
-      </Route>
+			<Route path="/createIdea">
+				<CreateIdea />
+			</Route>
 
-      <Route path="/startupProfile">
-        <StartupProfile />
-      </Route>
+			<Route path="/startupProfile">
+				<StartupProfile />
+			</Route>
 
-      <Route path="/signin">
-        <SignIn />
-      </Route>
+			<Route path="/signin">
+				<SignIn />
+			</Route>
 
-      <Route path="/signup">
-        <SignUp />
-      </Route>
+			<Route path="/signup">
+				<SignUp />
+			</Route>
 
-      <Route exact path="/">
-        <Home />
-      </Route>
-    </Switch>
-  );
+			<Route exact path="/">
+				<Home />
+			</Route>
+		</Switch>
+	);
 }
 export default Routes;
