@@ -232,6 +232,7 @@ export const Input = styled.input`
   margin-left: 15px;
   border-radius: 4px;
   width: 210px;
+  padding-left: 12px;
 `;
 export const ButtonS = styled.button`
   background-color: unset;

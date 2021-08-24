@@ -1,6 +1,8 @@
 //styling
 import { useSelector } from "react-redux";
 import { ButtonCard, L, ListImage } from "../../style";
+import moment from "moment";
+
 const IdeaItem = (props) => {
   const idea = props.idea;
 
@@ -16,13 +18,12 @@ const IdeaItem = (props) => {
           <div class="profile-content">
             <div class="profile-name">{idea.ideaName}</div>
             <div class="profile-description">
-              <h5>Fund Typy</h5>
               {idea.fundType === "all" && (
-                <p>Donation , Investment or Consultation</p>
+                <h6>Donation , Investment or Consultation</h6>
               )}
-              {idea.fundType === "donation" && <p>Donation</p>}
-              {idea.fundType === "investment" && <p>Investment</p>}
-              {idea.fundType === "consultation" && <p>Consultation</p>}
+              {idea.fundType === "donation" && <h6>Donation</h6>}
+              {idea.fundType === "investment" && <h6>Investment</h6>}
+              {idea.fundType === "consultation" && <h6>Consultation</h6>}
               <img
                 src="https://img.icons8.com/office/16/000000/money--v1.png"
                 alt="money"
@@ -50,7 +51,7 @@ const IdeaItem = (props) => {
               <div class="col-xs-4">
                 <div class="profile-overview">
                   <small class="text-muted">
-                    Idea created at {idea.createdAt.slice(0, 10)} by{" "}
+                    Idea created at {moment(idea.createdAt).format("ll")} by{" "}
                     <b>
                       {user?.firstName} {user?.lastName}
                     </b>

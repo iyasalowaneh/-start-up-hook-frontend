@@ -5,8 +5,10 @@ import { useSelector } from "react-redux";
 const Footer = () => {
   const users = useSelector((state) => state.users.users);
   const ideas = useSelector((state) => state.ideas.ideas);
-  const stories = ideas.filter((idea) => idea.fundAmount === idea.recievedFund);
-  const investors = users.filter((user) => user.type === "investor");
+  const stories = ideas.filter(
+    (idea) => idea?.fundAmount === idea?.recievedFund
+  );
+  const investors = users.filter((user) => user?.type === "investor");
 
   console.log(users);
   return (
@@ -27,12 +29,12 @@ const Footer = () => {
 
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
               <h5 class="text-uppercase">Success story</h5>
-              <h1>{stories.length}</h1>
+              <h1>{stories?.length}</h1>
             </div>
 
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
               <h5 class="text-uppercase mb-0">Number of investors</h5>
-              <h1> {investors.length} </h1>
+              <h1> {investors?.length} </h1>
             </div>
           </div>
         </div>

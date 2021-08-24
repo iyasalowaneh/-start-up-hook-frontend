@@ -18,6 +18,8 @@ import {
   Abutton,
   ImageP,
 } from "../../style";
+import moment from "moment";
+
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { Email } from "@material-ui/icons";
 
@@ -173,7 +175,7 @@ const IdeaDetail = () => {
 
                     <p class="card-text">
                       <small class="text-muted">
-                        Idea created at {idea.createdAt.slice(0, 10)} by{" "}
+                        Idea created at {moment(idea.createdAt).format("ll")} by{" "}
                         {ideaOwner?.firstName} {ideaOwner?.lastName}
                       </small>
                     </p>
