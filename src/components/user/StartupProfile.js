@@ -6,24 +6,21 @@ import { useState } from "react";
 // actions
 import { profile } from "../../store/actions/authAction";
 
-// styles
-
 const Profile = () => {
   const startupUser = useSelector((state) => state.user.user);
   console.log(startupUser);
-  const [user, SetUser] = useState({
+  const [user, setUser] = useState({
     education: "",
     experiance: "",
     country: "",
     age: "",
     gender: "",
   });
-  //SetUser(startupUser)
-  //console.log(user)
+
   const dispatch = useDispatch();
   const history = useHistory();
   const handleChange = (event) => {
-    SetUser({ ...user, [event.target.name]: event.target.value });
+    setUser({ ...user, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {

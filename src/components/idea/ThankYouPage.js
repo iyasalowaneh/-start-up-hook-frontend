@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+//Styling
 import { ThanksDiv, ThanksDiv2 } from "../../style";
 
 const ThankYouPage = () => {

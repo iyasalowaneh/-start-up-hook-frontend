@@ -1,3 +1,5 @@
+//Styling
+
 import { Imgoo, Pad } from "../../style";
 import moment from "moment";
 

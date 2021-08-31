@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 //components
 import IdeaItem from "./IdeaItem";
+//Styling
 import { DivList } from "../../style";
 import "./Ideas.css";
 const IdeaList = () => {

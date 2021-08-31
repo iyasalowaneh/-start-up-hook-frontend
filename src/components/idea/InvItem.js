@@ -1,3 +1,4 @@
+//Styling
 import { Embed } from "../../style";
 
 const InvItem = ({ idea }) => {

@@ -10,7 +10,7 @@ const InvestorItem = ({ ideaInv }) => {
   return (
     <Link to={`/ideas/${idea.slug}/chat/${ideaInv.slug}`}>
       <li>
-        <img src={ideaInv.profilePicture} alt=" " width="40px" />
+        <img src={ideaInv.profilePicture} alt="name" width="40px" />
         <div>
           <h2>
             {ideaInv.firstName} {ideaInv.lastName}

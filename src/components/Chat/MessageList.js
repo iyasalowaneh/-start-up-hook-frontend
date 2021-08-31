@@ -1,27 +1,20 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 
 //actions
 import { addMessage, fetchMessage } from "../../store/actions/messageActions";
 
 //Components
 import MessageItem from "./MessageItem";
+
 //Styling
-import { BsFillCursorFill } from "react-icons/bs";
-import InvestorList from "../User/InvestorList";
 import "./Chat.css";
-import { TextArea, SendButton, Mdiv } from "../../style";
 const MessageList = ({ ideaOwnerSlug }) => {
   const messages = useSelector((state) => state.messages.messages);
   const users = useSelector((state) => state.users.users);
   const user = useSelector((state) => state.user.user);
 
-  // const ideaOwnerSlug = useParams().ideaOwnerSlug;
-  // console.log(ideaOwnerSlug);
   const ideaOwner = users.find((user) => user.slug === ideaOwnerSlug);
-  console.log(ideaOwner);
-  // console.log(user);
 
   const invMessages = messages
     .filter(
@@ -55,7 +48,6 @@ const MessageList = ({ ideaOwnerSlug }) => {
   }, []);
   return (
     <>
-      {/* <InvestorList /> */}
       <div className="msg">
         <main>
           <header>
@@ -66,7 +58,7 @@ const MessageList = ({ ideaOwnerSlug }) => {
             </div>
             <img
               src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_star.png"
-              alt=""
+              alt="start icon"
             />
           </header>
 

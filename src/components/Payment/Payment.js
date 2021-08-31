@@ -4,12 +4,7 @@
 
 import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-import {
-  CardElement,
-  Elements,
-  useElements,
-  useStripe,
-} from "@stripe/react-stripe-js";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import "../../payment.css";
 import { Form, P1 } from "../../style";
 import { Link } from "react-router-dom";

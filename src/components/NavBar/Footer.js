@@ -1,6 +1,7 @@
-//Styling
-import { FDiv, counterBox } from "../../style";
 import { useSelector } from "react-redux";
+
+//Styling
+import { FDiv } from "../../style";
 
 const Footer = () => {
   const users = useSelector((state) => state.users.users);

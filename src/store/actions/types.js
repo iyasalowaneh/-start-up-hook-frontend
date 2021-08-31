@@ -13,6 +13,6 @@ export const FETCH_DONOR_USER = "FETCH_DONOR_USER";
 //userList
 export const FETCH_USERS = "FETCH_USERS";
 
-//Message Action
+//message Action
 export const ADD_MESSAGE = "ADD_MESSAGE";
 export const FETCH_MESSAGE = "FETCH_MESSAGE";

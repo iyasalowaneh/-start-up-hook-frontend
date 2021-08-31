@@ -1,5 +1,7 @@
-import { Button, Form } from "../../style";
 import { Link } from "react-router-dom";
+
+//Styling
+import { Button, Form } from "../../style";
 import "../../withdraw.css";
 
 const WithdrawForm = () => {

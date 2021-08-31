@@ -12,7 +12,6 @@ export const signup = (userData, history) => {
       dispatch(setUser(res.data.token));
 
       history.push("/startupProfile");
-      //   console.log(userData)
     } catch (error) {
       console.log(error);
     }
@@ -25,7 +24,6 @@ export const signin = (userData, history) => {
       const res = await instance.post(`/signin`, userData);
 
       dispatch(setUser(res.data.token));
-      // console.log(userData);
       history.push("/");
     } catch (error) {
       console.log(error);
@@ -40,7 +38,6 @@ export const signout = () => {
 export const profile = (userData, history) => {
   return async (dispatch) => {
     try {
-      //console.log(userData)
       const res = await instance.put(`/updateuser`, userData);
 
       history.push("/");

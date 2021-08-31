@@ -1,5 +1,5 @@
 // redux
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 

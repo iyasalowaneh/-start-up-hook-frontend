@@ -75,10 +75,6 @@ const InvestForm = () => {
           Manager upon the signing of this agreement. <br />
           <b>2.2</b> The Investor hereby agrees to entrust to Lotus Capital (the
           Investment Manager) the amount(s) stated in the investment account
-          opening form and all subsequent amounts invested thereafter by the
-          Investor, to be invested together with other investors’ funds for the
-          purpose of the Investments specified in this Agreement as defined in
-          “Investments” above. Such amount shall be remitted to the Investment
           Manager upon the signing of this agreement. <br />
           <b>2.3</b> The Investor hereby agrees to entrust to Lotus Capital (the
           Investment Manager) the amount(s) stated in the investment account
@@ -93,7 +89,7 @@ const InvestForm = () => {
           <br />
           <input
             type="number"
-            placeholder="Investment in USD"
+            placeholder="Investment in JD"
             name="amount"
             onChange={handleChange}
             required
